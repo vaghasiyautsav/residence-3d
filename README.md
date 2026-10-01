@@ -30,3 +30,6 @@ node tools/build.mjs     # src/model.html -> index.html (asks for the PIN; this 
 
 Preview while editing: `python3 -m http.server 8173 --directory src`, then open http://127.0.0.1:8173/model.html.
 `node tools/testpage.mjs` writes `src/test.html`, the same page with debug hooks on `window.__t` (jump to a spot, set the time, switch the lights).
+
+## Reusing the method
+[`skills/`](skills/README.md) holds the playbooks behind this model: a general method for turning working drawings into an accurate 3D house (with drawing-reading scripts), and this project's facts and workflow.
