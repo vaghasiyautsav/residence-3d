@@ -7,12 +7,15 @@ Interactive 3D model of the Vaghasiya Residence, 20 Telowie Avenue, Ingle Farm S
 The page is PIN protected. Ask the owner for the PIN.
 
 ## What you can do
-- Orbit the exterior, or switch to the ground floor and first floor plan cut-aways
+- Orbit the exterior, or switch to the ground floor and first floor plan cut-aways (each room shows its inside size)
 - Walk through the house in first person and open or close the doors
-- Change the time of day, weather and lights
+- Change the time of day, weather and lights (wall lights and the street light come on at dusk)
+- Show or hide the surroundings: the street, neighbouring houses and their trees
 - Choose the flooring (timber or tiles), the tapware finish, and the interior and exterior wall colours
 - Show the electrical estimate: downlights, power points, data and TV points, and the NBN connection
 - Measure distances
+
+Walls, openings, heights, roof and joinery follow the approved drawings (Studio Forthwall 26002) to within a few millimetres; furniture is at real catalogue sizes.
 
 Works in any modern browser on desktop or mobile. The published page is a single file (`index.html`).
 
