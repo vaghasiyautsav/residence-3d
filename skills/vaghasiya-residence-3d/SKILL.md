@@ -105,11 +105,11 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
   - **Footings:** 250 × 700 edge beams, plus internal beams at y 1030/3160/4390/5970 and x 3130/6780/8240/10450/16600.
   - **Services (indicative):**
-    - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. FF stacks are at (12850, 6700) and (8235, 6700), with vents.
+    - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. FF stacks sit in walls on both floors: Ensuite 1 at (12765, 6165), and Ensuite 2 plus the kitchenette at (8235, 6400) with its vent offset to the shower wall at (8835, 6400). The 100 mm stacks are wider than the 90 mm walls they sit in, so those walls need thickening on site.
     - **Stormwater:** charged lines at y −560 / 8585 / x −560 go to the tank inlet (−1640, −480). The tank overflow goes to a pump pit at (136, 2296). The rising main runs along y −760, then y 2973, to the kerb. The front sealed line is at y 211.
     - **Water:** meter at (27150, 3650), main along y −350. Hot comes from the HWS under the eave into the ceiling at y 420.
     - **Gas:** meter at (17880, 820), line along y −680 to the cooktop and BBQ.
-    - **Power:** from the MB at (16900, 860), the GF hub is at 2770 and the FF hub at 5910. Downlights are chained per room, with GPO drops.
+    - **Power:** from the MB at (16900, 860). GF cables run at 2722 under the first floor (the cavity between the ceiling lining and the beams) and at 2790 in the roof space elsewhere. FF cables run at 5910 and step up to 6200 over the coffers (`ffPath`). Downlights are chained per room, with GPO drops inside the walls.
     - **Data:** NBN to the NTD, then to the hub at (10770, 2840), then star-wired.
     - **AC:** condenser, then refrigerant up the D wall to a fan-coil at (11300–12500, 3420–4080, 6280–6560), with ducts to Bed 1, Bed 2, the office and the upper hall, plus a return. The ground floor has a second ducted system:
       - outdoor unit on the B-side path at x 4700–5550, y 8150–8500;
@@ -120,6 +120,9 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - `surfaceAt()` picks the footstep sound: FF carpet except the ensuites; GF timber, with tiles in the wet areas, carpet in Bed 4 and concrete in the garage;
   - `SND` holds the ambience (birds, crickets, wind, rain, doors) and is exposed on `__t.SND`, with `XS` on `__t.XS`.
 
+- **Riser rule:** `pipe()` passes every route through `inWalls()`, which moves indoor risers into the nearest wall (within 250 mm) and around any window or door. Hot water is offset 70 mm from cold. Stubs under 700 mm stay in their joinery.
+- **Power points** were re-set on 2026-10-02 so each has a real wall behind it: kitchen and pantry points beside the splashback windows, laundry points on the bench wall, and none in door openings or in open space.
+- **Services audit:** `src/audit2.js` (local) checks every pipe, cable and duct for openings, room exposure, roof, coffers, skylights and steel clashes; read `__audit2.sum`. One known leftover: the Ensuite 1 stack is wider than its wall.
 - **Structure audit:** `src/audit.js` (local, git-ignored) lists every structure member that pokes through a roof, sits in an opening, coffer, skylight or the stair void, or hangs in a room. In `test.html`, run `await import('/audit.js')` and read `__audit.sum`. Two known false positives remain: MO7 at the stair-void edge, and the bounding box of the tapered SB3 end.
 - **Garage portal wall:** the 3350 upstand applies only beyond the first floor (y 6800–8570). Under the first floor it stops at 3051, so it no longer blocks the bottom of the Bed 1 window.
 

@@ -294,6 +294,16 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - Put stacks in wall cavities that line up on both floors.
   - Take stormwater from the civil drawing: sealed lines to the tank, then overflow to a pump pit and a rising main to the kerb.
   - Mark the whole layer indicative until the trades' drawings arrive.
+  - **Snap risers into walls automatically** in the pipe helper. Use the nearest wall piece that exists at outlet height. If that spot is in a window or door, shift to the side and run under the sill. Offset hot from cold.
+  - **Audit services too.** A second script should test each run against openings, room volumes (not inside a wall means exposed), roof, raised ceilings, skylights and steel members, plus two services on the same line.
+  - **Typical finds:**
+    - risers a few centimetres inside the room;
+    - cables running along inside a beam's line;
+    - ceiling cables crossing a coffer;
+    - a stack that is in a wall on one floor but in a window or mid-room on the other.
+
+    Put each stack where a wall exists on both floors.
+  - **Check the outlets themselves.** Auto-spaced power points land on joinery fronts, in doorways and in open-plan gaps. Verify each has a wall piece 100 mm behind it at its height, with no opening there.
 
 ### Ambient sound (procedural WebAudio, no files)
 - **Start the AudioContext** on the first pointer or key event, honour a Sound toggle (saved in localStorage), and suspend it when the tab is hidden.
