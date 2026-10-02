@@ -11,7 +11,7 @@ const [inp = 'src/model.html', out = 'src/test.html'] = process.argv.slice(2);
 const html = await readFile(`${root}/${inp}`, 'utf8');
 const anchor = 'let lastT=performance.now();';
 if (!html.includes(anchor)) throw new Error(`Render loop anchor not found in ${inp}`);
-const hook = `window.__t={THREE,scene,camera,controls,renderer,W,ENV,FUR,D,DOORS,building, get composer(){ return composer; },
+const hook = `window.__t={THREE,scene,camera,controls,renderer,W,ENV,FUR,D,DOORS,building,SND,XS, get composer(){ return composer; },
   walk(n){ if(!W.on) enterWalk(); const s=SPOTS.find(s=>s[0]===n); if(s) goSpot(s); },
   look(x,y,yaw=0,pitch=0,lvl=0){ if(!W.on) enterWalk(); W.x=x; W.y=y; W.lvl=lvl; W.yaw=yaw; W.pitch=pitch; W.h=floorH(x,y,lvl); },
   time(h){ const r=document.getElementById('tod'); r.value=h; r.dispatchEvent(new Event('input',{bubbles:true})); r.dispatchEvent(new Event('change',{bubbles:true})); },

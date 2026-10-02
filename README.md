@@ -8,14 +8,16 @@ The page is PIN protected. Ask the owner for the PIN.
 
 ## What you can do
 - Orbit the exterior, or switch to the ground floor and first floor plan cut-aways (each room shows its inside size)
-- Walk through the house in first person and open or close the doors
+- Walk through the house in first person and open or close the doors. On a computer, click to look with the mouse and move with W A S D or the arrow keys (Shift to run); on a phone, use the joystick.
+- X-ray: see through to the light-gauge steel frame, Hebel panels, insulation, floor joists, roof trusses, structural steel and footings, and to the services (sewer, stormwater, water, gas, electrical, data and air conditioning). Each layer can be solid, ghosted or hidden; you can also isolate a level, explode the levels apart or cut a section.
+- Ambient sound: birds by day, crickets at night, wind and rain, plus footsteps and doors when walking
 - Change the time of day, weather and lights (wall lights and the street light come on at dusk)
 - Show or hide the surroundings: the street, neighbouring houses and their trees
 - Choose the flooring (timber or tiles), the tapware finish, and the interior and exterior wall colours
 - Show the electrical estimate: downlights, power points, data and TV points, and the NBN connection
 - Measure distances
 
-Walls, openings, heights, roof and joinery follow the approved drawings (Studio Forthwall 26002) to within a few millimetres; furniture is at real catalogue sizes.
+Walls, openings, heights, roof and joinery follow the approved drawings (Studio Forthwall 26002) to within a few millimetres; furniture is at real catalogue sizes. The frame and service routes in X-ray are indicative: the working drawings are for timber, while the house is being built in steel, so they will be updated from the frame supplier's drawings.
 
 Works in any modern browser on desktop or mobile. The published page is a single file (`index.html`).
 

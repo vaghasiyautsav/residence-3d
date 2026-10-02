@@ -226,11 +226,15 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
 - **Plan labels** show each room's inside size, e.g. "LIVING 5.00 × 3.41 m", taken from wall inside faces.
 - **Opening camera:** a three-quarter view clear of poles, wires and trees.
 - **Orbit FOV:** 40° vertical on landscape. On portrait phones use `fov = min(76, 2·atan(tan(19.5°)/aspect))` so the whole house fits the width.
-- **Walk mode:**
-  - FOV set by horizontal angle (78° portrait, 84° landscape), eye at 1600;
-  - joystick, WASD, drag-look and pinch/± zoom;
-  - collision against walls and windows;
-  - stairs follow the floor height.
+- **Walk mode** (game-style, like Pascal's walkthrough):
+  - FOV set by horizontal angle (78° portrait, 84° landscape), eye at 1650;
+  - on desktop (`(hover:hover) and (pointer:fine)`), click locks the pointer for mouse look, W A S D and the arrow keys move and strafe, Shift runs, and a click while locked opens the door under the crosshair;
+  - Esc frees the mouse; a second Esc leaves walk mode (time the `pointerlockchange`);
+  - drag-to-look stays as the fallback, because some embedded views refuse pointer lock (`WrongDocumentError`). Catch both requestPointerLock promises;
+  - phones get the joystick, drag-look and pinch zoom; hide the joystick on desktop;
+  - eased velocity (about 1.55 m/s walking, 3.4 m/s running);
+  - head bob of 14 to 24 mm with a tiny roll, a footstep on every half stride, and collision that kills only the blocked axis;
+  - stairs follow the floor height, smoothed.
 - **"Go to" spots:** check every spot's 250 mm radius against walls and furniture. Seen: a bedroom spot inside an armchair and a living spot inside the coffee table. Face each one at a good composition.
 - **Panels:**
   - time-of-day on the local sun path, weather, lights;
@@ -238,6 +242,46 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - electrical estimate (spacing rules, GPOs at 1100 over benches and 300 elsewhere, data/TV/NBN, marked as a budget estimate);
   - measure tool.
 - **Toolbar** rows scroll sideways on phones. Keep labels short.
+
+### X-ray, structure and services layer
+- **Tag every mesh** with a level (0 GF, 1 FF, 2 upper roof) as the geometry is built. Use a buffer key suffix, so merged meshes never mix floors; split glass and gutters by level too. Tag each mesh with its material key so it can be given a family.
+- **Families:**
+  - finishes: roof, walls, ceilings, floors, openings, furniture/fittings, ground;
+  - structure: frames, AAC, insulation, joists, trusses/battens, steel, slab/footings;
+  - services: sewer, stormwater, cold, hot, gas, power, data, HVAC.
+- **Each family is Solid, Ghost or Hidden.** Display modes (Finished / X-ray / Structure / Services) only set the defaults. Implement it this way:
+  - **Hidden:** `layers.set(31)`. Don't toggle `visible`, which other code owns. Layers also drop the mesh from shadows and raycasts.
+  - **Ghost:** swap in a cached clone of the material (`copy`, then transparent, depthWrite false, low opacity) and turn its shadow off. Leave the shared materials alone.
+  - **Material swaps by other code:** if the mesh's material is not the one you last set, adopt it as the new original.
+  - **Never ghost** a Reflector or a ShaderMaterial or `onBeforeCompile` material (grass): hide it instead.
+- **Ghost stacking:** overlapping slab and floor rectangles stack many ghost faces and blank out what is under the slab. In the Services mode default, floors and slab are Hidden, and the ground is ghosted.
+- **Explode:** offset each level group's `position.y` by about 3.6 m per level, calling `updateMatrix` for static meshes. Reset it when entering walk mode.
+- **Section:** add a second clipping plane to every house material once, and move it along x or y. Make the roof double-sided while a section is active.
+- **Framing generated from the wall boxes** (InstancedMesh, ~10 draw calls):
+  - Frame each wall piece. Pieces over openings get headers and pieces under them get sill tracks. Studs sit on a global 600 grid; jambs and corners are doubled. A nogging row goes at 1350.
+  - Find the outside face of a wall by testing 60 mm out against the interior footprint. Put the 75 AAC panels (600 wide) on that face, and the batts between the studs.
+  - Roof trusses at 900 c/c are sections of the roof height field, with the top chord about 95 under the sheet. The webs alternate over the footprint. The battens follow the field.
+  - Floor joists at 450 c/c split at the floor beams. Beams, columns and footings come from the engineer's sheets.
+  - Use lipped C ExtrudeGeometry for studs, joists and PFCs.
+- **Services are polylines** of plan points: an instanced cylinder per segment plus a sphere per joint. Use `emissiveIntensity ~0.2` so they read through ghosts.
+  - Route underground at ground −350…−600, under the slab with a real fall to the connection point, in the ceiling void (GF 2770), and in the joist zone (FF 2980).
+  - Put stacks in wall cavities that line up on both floors.
+  - Take stormwater from the civil drawing: sealed lines to the tank, then overflow to a pump pit and a rising main to the kerb.
+  - Mark the whole layer indicative until the trades' drawings arrive.
+
+### Ambient sound (procedural WebAudio, no files)
+- **Start the AudioContext** on the first pointer or key event, honour a Sound toggle (saved in localStorage), and suspend it when the tab is hidden.
+- **Buses:** ambience goes through a lowpass "muffle" (about 650 Hz and half gain indoors), then a compressor. Birds and crickets also feed a generated-impulse convolver for garden reverb.
+- **Birds** (by day, densest at dawn and dusk, fewer in rain) are short enveloped sine glides with random pan:
+  - tweets 2.5–3.8 kHz;
+  - fluty 1–1.8 kHz whistles;
+  - a soft AM trill;
+  - chips.
+  Keep the gains at 0.02–0.05 so it stays calm.
+- **Night:** crickets are about 4.5 kHz triple pulses per voice with rests.
+- **Weather:** wind is band-passed brown noise. Rain is band-limited white noise.
+- **Footsteps** are band-passed noise bursts by surface (timber, tile, carpet, concrete, paving, grass) plus a heel thump.
+- **Doors:** a latch click and a swish. The garage door gets a motor rumble.
 
 ## 7. Build, lock, deploy
 - **Source.** The readable source (`src/model.html`) is git-ignored. `index.html` is a PIN gate holding the model encrypted with AES-256-GCM, key from PBKDF2-SHA256 with 600k iterations, decrypted with WebCrypto.

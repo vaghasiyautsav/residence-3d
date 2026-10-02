@@ -89,6 +89,30 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - B/C/D elevation buttons switch the surroundings off;
   - walk spots checked clear (Living 7300,4900; Bed 1 16000,2900).
 
+- **X-ray layer** (module just before `const MATS=new Set()`; panel `#xrp`, button `t-xray`).
+  - **Structure is indicative LGS:** the drawings are timber, but the owner builds in steel, and the frame supplier's drawings are still to come.
+    - Walls: 89 C-studs at 600, with 75 Hebel and batts on the external walls.
+    - Floor: 300 joists at 450 in the 2830–3130 zone, avoiding the stair void (13400–19450 × 1100–2090).
+    - Roof: trusses at 900 from `ROOFS` (now including `holes`).
+  - **Steel per S-sheets:**
+    - SB3 380 PFC at y 1043; SB2/SB1 250 PFC at y 4363 / 6656; SB4 300 PFC at y 6656 (to 20251);
+    - GL1 300 PFC at x 19346 over the garage door;
+    - L1–L4 150 PFC lintels at 2400–2550;
+    - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
+  - **Footings:** 250 × 700 edge beams, plus internal beams at y 1030/3160/4390/5970 and x 3130/6780/8240/10450/16600.
+  - **Services (indicative):**
+    - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. FF stacks are at (12850, 6700) and (8235, 6700), with vents.
+    - **Stormwater:** charged lines at y −560 / 8585 / x −560 go to the tank inlet (−1640, −480). The tank overflow goes to a pump pit at (136, 2296). The rising main runs along y −760, then y 2973, to the kerb. The front sealed line is at y 211.
+    - **Water:** meter at (27150, 3650), main along y −350. Hot comes from the HWS under the eave into the ceiling at y 420.
+    - **Gas:** meter at (17880, 820), line along y −680 to the cooktop and BBQ.
+    - **Power:** from the MB at (16900, 860), the GF hub is at 2770 and the FF hub at 5910. Downlights are chained per room, with GPO drops.
+    - **Data:** NBN to the NTD, then to the hub at (10770, 2840), then star-wired.
+    - **AC:** condenser, then refrigerant up the D wall to a fan-coil at (11300–12500, 3420–4080, 6280–6560), with ducts to Bed 1, Bed 2, the office and the upper hall, plus a return.
+- **Walk and sound:**
+  - eye 1650; desktop pointer-lock mouse look, arrows and WASD move;
+  - `surfaceAt()` picks the footstep sound: FF carpet except the ensuites; GF timber, with tiles in the wet areas, carpet in Bed 4 and concrete in the garage;
+  - `SND` holds the ambience (birds, crickets, wind, rain, doors) and is exposed on `__t.SND`, with `XS` on `__t.XS`.
+
 ## Edit → check → lock → publish
 1. Edit `src/model.html`, run `node tools/testpage.mjs`, and preview with the `model` launch config.
 2. Check:
@@ -119,3 +143,4 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - Footpath material in front of the lot: the survey says brick; 2024 Street View showed concrete.
 - Options to offer: a king bed in Bed 1; a smaller sofa (three-seater + chaise, ~2.7 × 1.6 m) if the drawn L feels big.
 - The Stobie pole position is approximate (owner's description).
+- Frame and services are indicative. Replace them with the steel frame supplier's layout and the plumber's and electrician's runs when the owner sends them.
