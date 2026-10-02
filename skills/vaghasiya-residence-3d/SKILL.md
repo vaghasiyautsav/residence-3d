@@ -107,7 +107,10 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - **Gas:** meter at (17880, 820), line along y −680 to the cooktop and BBQ.
     - **Power:** from the MB at (16900, 860), the GF hub is at 2770 and the FF hub at 5910. Downlights are chained per room, with GPO drops.
     - **Data:** NBN to the NTD, then to the hub at (10770, 2840), then star-wired.
-    - **AC:** condenser, then refrigerant up the D wall to a fan-coil at (11300–12500, 3420–4080, 6280–6560), with ducts to Bed 1, Bed 2, the office and the upper hall, plus a return.
+    - **AC:** condenser, then refrigerant up the D wall to a fan-coil at (11300–12500, 3420–4080, 6280–6560), with ducts to Bed 1, Bed 2, the office and the upper hall, plus a return. The ground floor has a second ducted system:
+      - outdoor unit on the B-side path at x 4700–5550, y 8150–8500;
+      - slim fan-coil in the roof strip over the living room (4200–5300 × 6850–7300, z 2745–2995);
+      - ducts to the living room ×2 and Bed 4, to meals over the alfresco through the rear-wing roof, and to the hall plus a return between the joists at x 10425 / 9075 (`PLVO=0` keeps them on level 0).
 - **Walk and sound:**
   - eye 1650; desktop pointer-lock mouse look, arrows and WASD move;
   - `surfaceAt()` picks the footstep sound: FF carpet except the ensuites; GF timber, with tiles in the wet areas, carpet in Bed 4 and concrete in the garage;
