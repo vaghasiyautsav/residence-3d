@@ -255,6 +255,14 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - **Material swaps by other code:** if the mesh's material is not the one you last set, adopt it as the new original.
   - **Never ghost** a Reflector or a ShaderMaterial or `onBeforeCompile` material (grass): hide it instead.
 - **Ghost stacking:** overlapping slab and floor rectangles stack many ghost faces and blank out what is under the slab. In the Services mode default, floors and slab are Hidden, and the ground is ghosted.
+- **Make the panel easy for an owner** (a first version with 22 three-state chips was "hard to understand"):
+  - Lead with one question, "What do you want to see?", and four plain cards: Finished house, See-through, Frame & structure, Pipes & wiring. Each card has one line describing it.
+  - Below the cards, show a colour legend of only the layers in that view. Each row has a swatch, a name and a short line, and tapping the row shows or hides the layer.
+  - Put explode, level, section and real-colours under a collapsed "Look closer". Use words, not jargon: "Pull the floors apart", "Cut through the house" with "From the front / From the side". Fly the camera to face the cut.
+  - Put the three-state chips under a collapsed "Every layer, one by one".
+  - **Tap to identify:** name every instanced member as it is generated (`XTAG`, e.g. "Beam SB1 · 250 PFC steel carrying the first floor"). Show a card at the tap and a yellow highlight box. Pick with rings of rays at 8 and 16 px so thin pipes are easy to hit, and skip hits that a clipping plane cuts away.
+  - Keep a status chip ("X-ray: Pipes & wiring · Options · Back to finished") while the panel is closed. Change the bottom hint, and hide the neighbours in X-ray modes.
+  - Colour-code the structure only when no services are shown, otherwise a blue frame reads as cold water and red steel as hot water. In See-through, the steel is grey and only the pipes are coloured.
 - **Explode:** offset each level group's `position.y` by about 3.6 m per level, calling `updateMatrix` for static meshes. Reset it when entering walk mode.
 - **Section:** add a second clipping plane to every house material once, and move it along x or y. Make the roof double-sided while a section is active.
 - **Framing generated from the wall boxes** (InstancedMesh, ~10 draw calls):
