@@ -275,6 +275,20 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - Roof trusses at 900 c/c are sections of the roof height field, with the top chord about 95 under the sheet. The webs alternate over the footprint. The battens follow the field.
   - Floor joists at 450 c/c split at the floor beams. Beams, columns and footings come from the engineer's sheets.
   - Use lipped C ExtrudeGeometry for studs, joists and PFCs.
+- **Audit the generated structure with a script, not by eye.** Take every instance's bounding box back to plan mm and test it against:
+  - the roof height fields (nothing may poke through; skip sloping members, whose boxes mislead);
+  - openings, raised (coffered) ceilings, skylight shafts and the stair void;
+  - room space: a beam below the ceiling must be inside a wall piece.
+
+  The first audit of this project found:
+  - trusses through coffers and skylights;
+  - a 100 mm gap between the joists and the wall plates;
+  - a lintel hanging in a full-height opening;
+  - a beam end above the eave roof;
+  - ceiling batts through the roof at the eaves;
+  - a wall upstand in the finished model covering the bottom of a window.
+- **Make the floor zone add up:** plate + joist depth + sheet flooring + finishes = FFL. Joists bear on the plates, and upper frames stand on the sheet flooring.
+- **Show "member by others" beams** at a placeholder size and say so, or the walls above open rooms look unsupported.
 - **Services are polylines** of plan points: an instanced cylinder per segment plus a sphere per joint. Use `emissiveIntensity ~0.2` so they read through ghosts.
   - Route underground at ground −350…−600, under the slab with a real fall to the connection point, in the ceiling void (GF 2770), and in the joist zone (FF 2980).
   - Put stacks in wall cavities that line up on both floors.

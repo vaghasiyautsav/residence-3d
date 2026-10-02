@@ -92,12 +92,16 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **X-ray layer** (module just before `const MATS=new Set()`; panel `#xrp`, button `t-xray`).
   - **Structure is indicative LGS:** the drawings are timber, but the owner builds in steel, and the frame supplier's drawings are still to come.
     - Walls: 89 C-studs at 600, with 75 Hebel and batts on the external walls.
-    - Floor: 300 joists at 450 in the 2830–3130 zone, avoiding the stair void (13400–19450 × 1100–2090).
-    - Roof: trusses at 900 from `ROOFS` (now including `holes`).
+    - Floor: joists about 380 deep at 450, bearing on the GF plates (2730–3110, `FT=3110`), avoiding the stair void (13400–19450 × 1100–2090). FF frames stand on the sheet flooring at 3130.
+    - Roof: trusses at 900 from `ROOFS`. Over the Bed 1 and Bed 2 coffers the bottom chord steps up to 6252; the upper truss lines are offset to clear the skylight shafts.
+    - Ceiling batts are 1200 tiles trimmed under the roof near the eaves. Porch and stone piers show as AAC blockwork.
   - **Steel per S-sheets:**
-    - SB3 380 PFC at y 1043; SB2/SB1 250 PFC at y 4363 / 6656; SB4 300 PFC at y 6656 (to 20251);
+    - floor beams have top of steel 3110;
+    - SB3 380 PFC at y 1043 (its rear end, x 1855–2500, is shown tapered because the GF roof is lower than the beam there: an open question for the engineer);
+    - SB2/SB1 250 PFC at y 4363 / 6656; SB4 300 PFC at y 6656 (to 20251);
     - GL1 300 PFC at x 19346 over the garage door;
-    - L1–L4 150 PFC lintels at 2400–2550;
+    - L1, L3, L4 150 PFC lintels at 2400–2550; L2 (hall opening, full height) sits in the floor zone;
+    - MO1, MO7, MO8 (under FF walls) and MO6, MO3 (front frame) are "members by others", shown at placeholder sizes;
     - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
   - **Footings:** 250 × 700 edge beams, plus internal beams at y 1030/3160/4390/5970 and x 3130/6780/8240/10450/16600.
   - **Services (indicative):**
@@ -115,6 +119,9 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - eye 1650; desktop pointer-lock mouse look, arrows and WASD move;
   - `surfaceAt()` picks the footstep sound: FF carpet except the ensuites; GF timber, with tiles in the wet areas, carpet in Bed 4 and concrete in the garage;
   - `SND` holds the ambience (birds, crickets, wind, rain, doors) and is exposed on `__t.SND`, with `XS` on `__t.XS`.
+
+- **Structure audit:** `src/audit.js` (local, git-ignored) lists every structure member that pokes through a roof, sits in an opening, coffer, skylight or the stair void, or hangs in a room. In `test.html`, run `await import('/audit.js')` and read `__audit.sum`. Two known false positives remain: MO7 at the stair-void edge, and the bounding box of the tapered SB3 end.
+- **Garage portal wall:** the 3350 upstand applies only beyond the first floor (y 6800–8570). Under the first floor it stops at 3051, so it no longer blocks the bottom of the Bed 1 window.
 
 ## Edit → check → lock → publish
 1. Edit `src/model.html`, run `node tools/testpage.mjs`, and preview with the `model` launch config.
