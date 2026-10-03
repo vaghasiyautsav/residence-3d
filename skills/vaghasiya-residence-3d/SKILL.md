@@ -47,7 +47,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - `wy()` applies `FFLIFT=30`: heights up to 2730 are unchanged, the floor zone stretches, and everything from 3130 up rises 30. So the real first floor is `UR=3180`.
   - Ground-floor parts above the plate are built with `ZG=1` (lift off): the GF roof, garage portal, front band to 3051, box gutters, stair, steel and joists.
   - Walking heights and the plan cut use real heights.
-  - The stair has 17 equal risers, `RISE=(UR+20)/17`.
+  - The stair has 17 equal risers, `RISE=UR/17` (187.06). The architect's stair note still says 17 risers at 186.47, which totals 3170 and no longer matches any floor level. Raised with the owner on 3 Oct 2026.
 - **Slab-plan set-out now in the model:**
   - stacks at (8380, 4970), in the duct box at the Bed 4 robe corner, and (11639, 3030), in the hall curve;
   - toilets at x 11919 (ensuite) and 13170 (WC); powder vanity at 12010;
@@ -143,7 +143,15 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - L1, L3, L4 150 PFC lintels at 2400–2550; L2 (hall opening, full height) sits in the floor zone;
     - MO1, MO7, MO8 (under FF walls) and MO6, MO3 (front frame) are "members by others", shown at placeholder sizes;
     - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
-  - **Footings:** 250 × 700 edge beams, plus internal beams at y 1030/3160/4390/5970 and x 3130/6780/8240/10450/16600.
+  - **Footings** (engineer's S02 footing layout plan, `257115-S-COMBINED[B].pdf` page 2; x = (pt − 241.35) · 35.2778, y = (pt − 234.29) · 35.2778). The beam lines are drawn as rows of short dashes: merge the dashes to read them.
+    - Slab 125 thick.
+    - EB 250 × 700 around the house and garage perimeter.
+    - IB 250 × 700 at x 3128 (y 250–4260), 6788, 8234, 10448 and 13860 (y 250–7860) and 16600 (y 1150–8760).
+    - IB 250 × 700 at y 1026 (x 10571–13735), 3155 (x 1960–19240), 4386 (x 3250–6663) and 5965 (x 3250–19240).
+    - MB 250 × 650 around the alfresco and porch.
+    - All beams bottom out at −720.
+    - Not modelled: the trench piers and the 30 wet-area set-downs.
+  - **Footings view** (button `m-foot`, X-ray mode `footings`): beams solid, slab see-through, with size labels (`FOOTL`). Footing beams are their own family, `foot`.
   - **Services (indicative):**
     - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. The two stacks are where the slab plan puts them (see the rev A section). Ensuite 1 drains along the x 12765 wall line to the hall stack. Ensuite 2 and the kitchenette drain to the robe-corner stack. Vents rise in the nearest FF wall.
     - **Stormwater:** charged lines at y −560 / 8585 / x −560 go to the tank inlet (−1640, −480). The tank overflow goes to a pump pit at (136, 2296). The rising main runs along y −760, then y 2973, to the kerb. The front sealed line is at y 211.
