@@ -107,7 +107,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - kitchenette bench 7820–9280 × 2140–2740;
   - linen cupboard has three flush doors.
 - **Services:**
-  - AC 14300–15150 × 350–700; HWS ×2 at x 7420/8180 (y −380); tank at x −800, y −480 on a pad;
+  - AC 14300–15150 × 350–700; HWS ×2 at x 7420/8180 (y −380); tank at (−850, 680), long side along the rear retaining wall;
   - meter box (proposed) on the y 900 wall, x 16620–17180;
   - bins at x 15490 (yellow), 16100 (green), 16660 (blue);
   - wall lights listed in `WL`, with wall-wash beams.
@@ -175,6 +175,16 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Power points** were re-set on 2026-10-02 so each has a real wall behind it: kitchen and pantry points beside the splashback windows, laundry points on the bench wall, and none in door openings or in open space.
 - **Services audit:** `src/audit2.js` (local) checks every pipe, cable and duct for openings, room exposure, roof, coffers, skylights and steel clashes; read `__audit2.sum`. One known leftover: the Ensuite 1 stack is wider than its wall.
 - **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
+- **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000.
+  - **Rear wall:** across the yard at x −1467…−1289 (`RWX=-1378`).
+  - **B-boundary wall:** x −1378…13712, y 8910–9010.
+  - **Levels for both:** top RL 98.90 (−100), base RL 98.25 (−750), 0.65 m of fill, "to be confirmed on the neighbouring levels".
+  - **Steps** through the rear wall at y 2836–3731 (three 125 risers).
+  - **Driveway wall:** B boundary, x 19490–21100, top +150, base −200 (0.35 m cut).
+  - **Ground:** `ground(x)` is −750 behind the rear wall (lower yard) and −250 on the platform.
+  - **Tank:** turned to sit along the wall as on the civil plan, centre (−850, 680), inlet at (−850, 1520).
+  - **Pavers:** the stepping pavers line up with the steps (y 2850–3310).
+  - **Superseded labels:** the civil PDF holds hidden text (TRW 99.45 / 1.25 m). Read the labels from a render, not from the text layer.
 - **Structure audit:** `src/audit.js` (local, git-ignored) lists every structure member that pokes through a roof, sits in an opening, coffer, skylight or the stair void, or hangs in a room. In `test.html`, run `await import('/audit.js')` and read `__audit.sum`. Two known false positives remain: MO7 at the stair-void edge, and the bounding box of the tapered SB3 end.
 - **Garage portal wall:** the 3350 upstand applies only beyond the first floor (y 6800–8570). Under the first floor it stops at 3051, so it no longer blocks the bottom of the Bed 1 window.
 

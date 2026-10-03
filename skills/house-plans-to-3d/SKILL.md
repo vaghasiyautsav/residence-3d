@@ -122,6 +122,10 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - Penetration marks are small circles; elevation levels are long horizontal lines on the levels layer.
   - A slab plan gives exact stack, toilet, vanity, shower, floor-trap and conduit positions.
 - **A level change above the ground floor** touches hundreds of literals. Keep the source on the original datum and apply one documented lift in the height-to-world function, switching it off for ground-floor parts that reach above the plate. Then walking, the stair and the cut planes need real heights.
+- **Retaining walls** are on the civil plan, as coloured lines with TRW/BRW (top and bottom of wall) levels. Convert the levels to heights from the floor datum, and make the ground a real step at the wall.
+  - Split the terrain patches at the wall, add steps where the plan shows them, and add the wall to the walk collision.
+  - Then re-check everything that sat on the old slope (tank, pavers, pipes).
+- **PDF text layers can hold superseded labels** hidden under newer boxes. Confirm any level you read from text against a rendered crop.
 - **Check the plans for service shafts and return-air grilles** before inventing an air-conditioning layout.
 
 ### Verify the extraction (every round)

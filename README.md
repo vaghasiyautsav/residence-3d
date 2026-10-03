@@ -18,7 +18,7 @@ The page is PIN protected. Ask the owner for the PIN.
 - Measure distances
 - 2D plan: see the model flat from directly above, like a drawn plan, for the ground floor, first floor, slab, footings or roof
 - Slab plan: the concrete slab on its own, with its set-downs, edge rebates and labelled pipe positions
-- Footings: the edge and internal footing beams under the slab, from the engineer's footing plan
+- Footings: the edge and internal footing beams and trench piers under the slab, from the engineer's footing plan, with the retaining walls
 
 Walls, openings, heights, roof and joinery follow the approved drawings (Studio Forthwall 26002) to within a few millimetres; furniture is at real catalogue sizes. The frame and service routes in X-ray are indicative: the working drawings are for timber, while the house is being built in steel, so they will be updated from the frame supplier's drawings.
 
