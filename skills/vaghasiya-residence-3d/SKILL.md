@@ -111,7 +111,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - meter box (proposed) on the y 900 wall, x 16620–17180;
   - bins at x 15490 (yellow), 16100 (green), 16660 (blue);
   - wall lights listed in `WL`, with wall-wash beams.
-  - eave downlights (owner request): recessed in the ground-floor eave soffit (2451) on the D side, B side and rear, and in the first-floor soffit (5601); listed in `EAVE` and pushed into `DL`, so they glow and pool with the house lights.
+  - eave downlights (owner request): recessed in the ground-floor eave soffit (2451) on the D side, B side and rear, and in the first-floor soffit (5601); listed in `EAVE` and pushed into `DL`, so they glow and pool with the house lights, and each washes the wall below it (beam stops at any window or door head).
   - night lighting: `ROOM_LIGHTS` (14 point lights, 8 on phones) go to the room sources nearest the viewer, with sources behind the viewer ranked further away; with the lights on, paint and ceilings keep a soft glow in every room, so distant rooms never read as dark.
   - the entry Buddha is one continuous surface: marching cubes over a signed-distance field with smooth-min fillets (additive metaballs gave a blob). Use the same method for any figure that needs real curves.
   - furniture shapes: `soft(w,h,d,{ax,r,crown,top,pinch,wr,bow})` makes crowned cushions, pillows, duvets and bowed chair backs (`sblk` is the plan-coordinate version); `leg()` makes round tapered splayed legs. Use these for anything upholstered or turned instead of `RB` boxes (sofas, beds, armchair, dining chairs, bar stools, office chairs, benches already do).
