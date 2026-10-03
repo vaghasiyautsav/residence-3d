@@ -107,7 +107,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - kitchenette bench 7820–9280 × 2140–2740;
   - linen cupboard has three flush doors.
 - **Services:**
-  - AC 14300–15150 × 350–700; HWS ×2 at x 7420/8180 (y −380); tank at (−850, 680), long side along the rear retaining wall;
+  - AC outdoor unit 14000–14940 × 500–900 (GF plan); HWS ×2 at x 7420/8180 (y −380); tank along the D boundary at x −1150…1350, y −850…−100;
   - meter box (proposed) on the y 900 wall, x 16620–17180;
   - bins at x 15490 (yellow), 16100 (green), 16660 (blue);
   - wall lights listed in `WL`, with wall-wash beams.
@@ -183,6 +183,10 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Downpipes per the DWG plans** (r 60 circles):
   - GF at (13380, −120), (2059, −120), (145, 4100), (260, 8230), (7834, 8230) and the garage rear corner (13590, 9010);
   - FF at x 3200, 8337, 16090 and 18967 on the D side, and 3470, 9392 and 18620 on the B side.
+- **Joinery and fixtures audit against the DWG (2026-10-03).** These matched: island (4790–7190 × 1890–2790), kitchen and pantry benches, laundry bench, robe, walk-in robes and desks, kitchenette, towel rails, return-air grille, roof outlines. These were corrected:
+  - AC outdoor unit position;
+  - alfresco bench start (x 290);
+  - first-floor linen cupboard added (9370–9870 × 2230–3180, doors facing the upper hall).
 - **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
 - **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000.
   - **Rear wall:** across the yard at x −1467…−1289 (`RWX=-1378`).
@@ -193,7 +197,9 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - **Ground:** `ground(x)` is −750 at the foot of the rear wall, falling to −900 at the rear (sewer shaft lid RL 98.10), and −250 on the platform.
   - **Driveway (civil C01):** paving RL 98.95 at the garage door, 12.5% for 2 m to 99.20, then 20%. The design carries on to RL 100.00 and a 100.15 crest at the boundary. The model caps at verge level 950, so the lot meets the street: an accepted 200 mm difference at the boundary.
   - **Sewer:** the inspection shaft is at (−3071, 7963) with invert RL 96.60 (−2400). The main drops to it from the under-slab run.
-  - **Tank:** turned to sit along the wall as on the civil plan, centre (−850, 680), inlet at (−850, 1520).
+  - **Tank:** the owner wants it along the D side, as the architect's site plan draws it (3 Oct 2026); do not turn it along the retaining wall as the civil plan does.
+    - Size: a Team Poly Aqua Spring 3000 L slimline, 2500 × 750 × 2000.
+    - Position: x −1150…1350, y −850…−100 (centre (100, −475)), just clear of the rear retaining wall. Inlet at the house end, (990, −475).
   - **Pavers:** the stepping pavers line up with the steps (y 2850–3310).
   - **Superseded labels:** the civil PDF holds hidden text (TRW 99.45 / 1.25 m). Read the labels from a render, not from the text layer.
 - **Area schedule check (2026-10-03):** the info card (106.6 + 106.0 m² living, 259.5 m² under roof) matches the AREAS table on the rev A plans (106.58, 106.00, garage 32.26, alfresco 12.26, porch 2.40, total 259.50).
