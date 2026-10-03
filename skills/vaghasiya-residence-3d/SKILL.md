@@ -181,10 +181,13 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - **Levels for both:** top RL 98.90 (−100), base RL 98.25 (−750), 0.65 m of fill, "to be confirmed on the neighbouring levels".
   - **Steps** through the rear wall at y 2836–3731 (three 125 risers).
   - **Driveway wall:** B boundary, x 19490–21100, top +150, base −200 (0.35 m cut).
-  - **Ground:** `ground(x)` is −750 behind the rear wall (lower yard) and −250 on the platform.
+  - **Ground:** `ground(x)` is −750 at the foot of the rear wall, falling to −900 at the rear (sewer shaft lid RL 98.10), and −250 on the platform.
+  - **Driveway (civil C01):** paving RL 98.95 at the garage door, 12.5% for 2 m to 99.20, then 20%. The design carries on to RL 100.00 and a 100.15 crest at the boundary. The model caps at verge level 950, so the lot meets the street: an accepted 200 mm difference at the boundary.
+  - **Sewer:** the inspection shaft is at (−3071, 7963) with invert RL 96.60 (−2400). The main drops to it from the under-slab run.
   - **Tank:** turned to sit along the wall as on the civil plan, centre (−850, 680), inlet at (−850, 1520).
   - **Pavers:** the stepping pavers line up with the steps (y 2850–3310).
   - **Superseded labels:** the civil PDF holds hidden text (TRW 99.45 / 1.25 m). Read the labels from a render, not from the text layer.
+- **Area schedule check (2026-10-03):** the info card (106.6 + 106.0 m² living, 259.5 m² under roof) matches the AREAS table on the rev A plans (106.58, 106.00, garage 32.26, alfresco 12.26, porch 2.40, total 259.50).
 - **Structure audit:** `src/audit.js` (local, git-ignored) lists every structure member that pokes through a roof, sits in an opening, coffer, skylight or the stair void, or hangs in a room. In `test.html`, run `await import('/audit.js')` and read `__audit.sum`. Two known false positives remain: MO7 at the stair-void edge, and the bounding box of the tapered SB3 end.
 - **Garage portal wall:** the 3350 upstand applies only beyond the first floor (y 6800–8570). Under the first floor it stops at 3051, so it no longer blocks the bottom of the Bed 1 window.
 
