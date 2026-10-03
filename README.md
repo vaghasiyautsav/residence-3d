@@ -16,7 +16,7 @@ The page is PIN protected. Ask the owner for the PIN.
 - Choose the flooring (timber or tiles), the tapware finish, and the interior and exterior wall colours
 - Show the electrical estimate: downlights, power points, data and TV points, and the NBN connection
 - Measure distances
-- 2D plans: open the architect's ground-floor and first-floor plans, and pan and zoom them
+- 2D plan: see the model flat from directly above, like a drawn plan, for the ground floor, first floor or roof
 
 Walls, openings, heights, roof and joinery follow the approved drawings (Studio Forthwall 26002) to within a few millimetres; furniture is at real catalogue sizes. The frame and service routes in X-ray are indicative: the working drawings are for timber, while the house is being built in steel, so they will be updated from the frame supplier's drawings.
 

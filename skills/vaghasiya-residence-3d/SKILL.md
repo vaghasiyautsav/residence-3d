@@ -57,7 +57,13 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Not modelled:** the 25 garage opening rebate.
 - **Garage portal top:** 3400, per the elevation A dimension (owner confirmed 3 Oct 2026).
 
-- **2D plans viewer** (`#planv`, button `t-plan`): the architect's GF and FF plans are embedded as 24-colour PNGs in `PLANS`, about 140 kB each. They are rendered from the rev A PDF pages 2 and 3, clip (318, 150, 1450, 985) pt at zoom 2.8. Re-render them when the drawings are reissued.
+- **2D plan** (button `t-plan`, `set2D()`): the model seen flat from directly above. The owner asked for the model itself as a plan, not the architect's sheets (an embedded drawing viewer was built and removed on 3 Oct 2026).
+  - It uses the same camera, looking straight down from far away through a 2° lens (`fit2D`), which is near enough to parallel.
+  - Rotation is off and drag pans.
+  - Fog is off, and near/far track the zoom (`near2D`).
+  - Portrait phones turn the plan upright.
+  - The plan-mode buttons keep the flat view; any elevation view or Walk leaves it.
+  - It starts on the ground-floor cut if the view was Exterior.
 - **Owner's mark-up PDF:** `src/drawings/WD_A_03.10.26_markup-450.pdf` (git-ignored; a copy is in `~/Downloads`). It shows 450 in red in place of 470 on the Elevations sheet, with a red banner on every sheet saying it is not issued by the architect.
 
 ## Model facts (as built, checked against the drawings)

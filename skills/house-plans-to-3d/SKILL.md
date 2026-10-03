@@ -255,6 +255,11 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - electrical estimate (spacing rules, GPOs at 1100 over benches and 300 elsewhere, data/TV/NBN, marked as a budget estimate);
   - measure tool.
 - **Toolbar** rows scroll sideways on phones. Keep labels short.
+- **2D plan view:** owners ask for "2D" meaning the model itself seen flat from above, not the drawing sheets. Ask which they mean, or build the model view.
+  - A cheap way without a second camera: aim the perspective camera straight down from far away with a 2° lens.
+  - Turn fog off and disable rotation, so that drag pans.
+  - Keep near/far tight around the model as the zoom changes, or thin layers z-fight.
+  - Refit on resize.
 
 ### X-ray, structure and services layer
 - **Tag every mesh** with a level (0 GF, 1 FF, 2 upper roof) as the geometry is built. Use a buffer key suffix, so merged meshes never mix floors; split glass and gutters by level too. Tag each mesh with its material key so it can be given a family.
