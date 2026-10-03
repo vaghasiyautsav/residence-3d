@@ -115,6 +115,8 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - night lighting: `ROOM_LIGHTS` (14 point lights, 8 on phones) go to the room sources nearest the viewer, with sources behind the viewer ranked further away; with the lights on, paint and ceilings keep a soft glow in every room, so distant rooms never read as dark.
   - the entry Buddha is one continuous surface: marching cubes over a signed-distance field with smooth-min fillets (additive metaballs gave a blob). Use the same method for any figure that needs real curves.
   - furniture shapes: `soft(w,h,d,{ax,r,crown,top,pinch,wr,bow})` makes crowned cushions, pillows, duvets and bowed chair backs (`sblk` is the plan-coordinate version); `leg()` makes round tapered splayed legs. Use these for anything upholstered or turned instead of `RB` boxes (sofas, beds, armchair, dining chairs, bar stools, office chairs, benches already do).
+  - plan notes built on 2026-10-04: smoke detectors (SD) at (9090,3760) GF hall, (7838,1506) and (14220,2637) FF; floor waste (FT) at (12170,6800) in the GF ensuite; D-side garden tap at x 2650 with the two capped "RWT pump & loop provision" stubs at x 2307 and 2445; ceiling fans in Bed 1 (17300,4400) and Bed 2 (5190,3090) in the coffers.
+  - **Swallowed-code check:** a `//` comment followed by code on the same line silently drops that code (seven cases found on 2026-10-04: coffee-table legs, both bedroom fans, plants, a rug, a bath mat). Before publishing, scan for comments that contain `);`.
   - GF WC: pan centred on the back wall with full-width tiling and ledge; roll holder on the garage-side wall (owner). Pantry: stainless dishwasher under the bench beside the sink (owner).
 - **Street** (survey):
   - nature strip to 30240;
