@@ -11,10 +11,10 @@ The page is PIN protected. Ask the owner for the PIN.
 - Walk through the house in first person and open or close the doors. On a computer, click to look with the mouse and move with W A S D or the arrow keys (Shift to run); on a phone, use the joystick.
 - X-ray: see through to the light-gauge steel frame, Hebel panels, insulation, floor joists, roof trusses, structural steel and footings, and to the services (sewer, stormwater, water, gas, electrical, data and air conditioning). Each layer can be solid, ghosted or hidden; you can also isolate a level, explode the levels apart or cut a section.
 - Ambient sound: birds by day, crickets at night, wind and rain, plus footsteps and doors when walking
-- Change the time of day, weather and lights (wall lights and the street light come on at dusk)
+- Change the time of day, weather and lights (at night every room is lit, with wall lights and eave downlights outside; the street light comes on at dusk)
 - Show or hide the surroundings: the street, neighbouring houses and their trees
 - Choose the flooring (timber or tiles), the tapware finish, and the interior and exterior wall colours
-- Show the electrical estimate: downlights, power points, data and TV points, and the NBN connection
+- Show the electrical estimate: downlights, power points, data and TV points, the NBN connection, smoke alarms, exhaust fans, ceiling fans and the two water heater power points
 - Measure distances
 - 2D plan: see the model flat from directly above, like a drawn plan, for the ground floor, first floor, slab, footings or roof
 - Slab plan: the concrete slab on its own, with its set-downs, edge rebates and labelled pipe positions
