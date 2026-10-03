@@ -140,7 +140,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - SB3 380 PFC at y 1043 (its rear end, x 1855–2500, is shown tapered because the GF roof is lower than the beam there: an open question for the engineer);
     - SB2/SB1 250 PFC at y 4363 / 6656; SB4 300 PFC at y 6656 (to 20251);
     - GL1 300 PFC at x 19346 over the garage door;
-    - L1, L3, L4 150 PFC lintels at 2400–2550; L2 (hall opening, full height) sits in the floor zone;
+    - L1–L4 150 PFC lintels at 2400–2550;
     - MO1, MO7, MO8 (under FF walls) and MO6, MO3 (front frame) are "members by others", shown at placeholder sizes;
     - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
   - **Footings** (engineer's S02 footing layout plan, `257115-S-COMBINED[B].pdf` page 2; x = (pt − 241.35) · 35.2778, y = (pt − 234.29) · 35.2778). The beam lines are drawn as rows of short dashes: merge the dashes to read them.
@@ -174,6 +174,15 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Riser rule:** `pipe()` passes every route through `inWalls()`, which moves indoor risers into the nearest wall (within 250 mm) and around any window or door. Hot water is offset 70 mm from cold. Stubs under 700 mm stay in their joinery.
 - **Power points** were re-set on 2026-10-02 so each has a real wall behind it: kitchen and pantry points beside the splashback windows, laundry points on the bench wall, and none in door openings or in open space.
 - **Services audit:** `src/audit2.js` (local) checks every pipe, cable and duct for openings, room exposure, roof, coffers, skylights and steel clashes; read `__audit2.sum`. One known leftover: the Ensuite 1 stack is wider than its wall.
+- **Square-set openings** (SQ.OP on the plans; the code is height.width in decimetres, so 24.11 = 2400 high × 1100 wide) have wall above them from 2400:
+  - kitchen/pantry at x 8190, y 900–1890;
+  - living/hall at x 8190, y 3330–4430, with lintel L2 over it at 2400–2550;
+  - hall/powder at y 4430, x 11470–12560;
+  - FF Bed 2/WIR at y 5090, x 6290–7190;
+  - FF Bed 1/WIR at x 15210, y 3820–4720.
+- **Downpipes per the DWG plans** (r 60 circles):
+  - GF at (13380, −120), (2059, −120), (145, 4100), (260, 8230), (7834, 8230) and the garage rear corner (13590, 9010);
+  - FF at x 3200, 8337, 16090 and 18967 on the D side, and 3470, 9392 and 18620 on the B side.
 - **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
 - **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000.
   - **Rear wall:** across the yard at x −1467…−1289 (`RWX=-1378`).

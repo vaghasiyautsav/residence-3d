@@ -317,6 +317,8 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - Hatched rectangles are trench piers.
   - A letter in a crossed box marks a set-down; read the legend.
   - Give footings their own view, with the slab see-through.
+- **Read the opening codes.** A code like `SQ.OP 24.11` or `ASW 06.21` gives height then width in decimetres. A square-set opening still has wall above its head height: a missing head piece looks like a full-height gap, and it moves the lintel.
+- **Audit downpipes against the CAD symbols** (small circles of one radius), per floor.
 - **Audit door swings against the CAD arcs:** arc centre = hinge, radius = leaf, arc ends = closed and open positions.
 - **Show "member by others" beams** at a placeholder size and say so, or the walls above open rooms look unsupported.
 - **Services are polylines** of plan points: an instanced cylinder per segment plus a sphere per joint. Use `emissiveIntensity ~0.2` so they read through ghosts.
