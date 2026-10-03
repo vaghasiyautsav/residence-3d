@@ -305,6 +305,9 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - a beam end above the eave roof;
   - ceiling batts through the roof at the eaves;
   - a wall upstand in the finished model covering the bottom of a window.
+- **Slab plan view.** When the architect issues a slab plan, build the ground slab from it as a grid of cells: collect every rectangle edge, plus ±100 for the rebate band, as breakpoints, and give each cell its own top level. Then set-downs, edge rebates and door rebates are real steps.
+  - Show it as its own view: slab, footings, under-slab drains and conduits only, with a label sprite at each penetration and set-down.
+  - Keep label sprites out of the ambient-occlusion pass, or they leave dark boxes behind them.
 - **Make the floor zone add up:** plate + joist depth + sheet flooring + finishes = FFL. Joists bear on the plates, and upper frames stand on the sheet flooring.
 - **Show "member by others" beams** at a placeholder size and say so, or the walls above open rooms look unsupported.
 - **Services are polylines** of plan points: an instanced cylinder per segment plus a sphere per joint. Use `emissiveIntensity ~0.2` so they read through ghosts.

@@ -53,8 +53,13 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - toilets at x 11919 (ensuite) and 13170 (WC); powder vanity at 12010;
   - wastes: laundry (13659, 540), pantry (10000, 360), island (6790, 2340), ensuite floor trap (12170, 6800), alfresco (590, 7820);
   - island power conduit at (5090, 2190).
+- **Ground slab** is built as a grid of cells from the slab plan (search "Ground slab per the architect's slab plan"):
+  - structural top at −20, with alfresco, porch and the ensuite shower at −70;
+  - a 25 × 100 edge rebate (top −45) around the house and garage for the Hebel, with none along the porch entry wall (x > 19390, y 1350–3280);
+  - a 25 rebate across the garage door opening (x > 19300, y 3760–8570);
+  - render fills the rebate under the walls.
+- **Slab plan view** (button `m-slab`, X-ray mode `slab`): only the slab, footings, under-slab drains and the island conduit, ground level only. The `SLABL` sprites label each penetration and set-down. Exterior, the plan buttons and Walk all leave it.
 - **Shower set-down:** the GF ensuite shower (`SHW`, 12370–13810 × 7020–7920) has its slab set down 50, with the tiled floor finishing 25 lower (`SHZ=-25`, an assumed mortar bed). The floor, slab and bathroom tiles are cut around it with `cutR`. The two first-floor showers are not set down: the slab plan covers the ground slab only.
-- **Not modelled:** the 25 garage opening rebate.
 - **Garage portal top:** 3400, per the elevation A dimension (owner confirmed 3 Oct 2026).
 
 - **2D plan** (button `t-plan`, `set2D()`): the model seen flat from directly above. The owner asked for the model itself as a plan, not the architect's sheets (an embedded drawing viewer was built and removed on 3 Oct 2026).
