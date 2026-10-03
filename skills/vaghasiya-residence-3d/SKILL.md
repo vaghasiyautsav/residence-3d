@@ -124,6 +124,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - exploded view levels: anything without `userData.lvl` is placed by its height; fittings on the first-floor ceilings inside the FF footprint stay with the first floor (`lvlOf`). Give merged meshes that span both floors one mesh per floor (the skirting does).
   - X-ray colour key: `#xrkey` sits above the X-ray badge whenever the options panel is closed, one chip per layer of the current view (`XLEG`), tap to hide or show (`famToggle`). It scrolls sideways on phones.
   - solar (owner, 2026-10-04): premium all-black panels with black frames and rails (black backsheet, half-cut cells with faint gaps), not blue cells in silver frames.
+  - gutters: runs that meet at a roof corner are mitred at 45 degrees (outside corners grow with the profile, inside corners shrink); a run that simply stops gets a stop-end plate. Box gutters have stop ends too. Never leave a run as an open channel or let two runs cross at a corner.
   - GF WC: pan centred on the back wall with full-width tiling and ledge; roll holder on the garage-side wall (owner). Pantry: stainless dishwasher under the bench beside the sink (owner).
 - **Street** (survey):
   - nature strip to 30240;
