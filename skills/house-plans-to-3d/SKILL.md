@@ -259,6 +259,9 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - electrical estimate (spacing rules, GPOs at 1100 over benches and 300 elsewhere, data/TV/NBN, marked as a budget estimate);
   - measure tool.
 - **Toolbar** rows scroll sideways on phones. Keep labels short.
+- **An overlay and its info panel are two things.** Closing the panel must not switch the overlay off, and opening another panel must not either.
+  - On phones, start with the panel closed.
+  - Keep a small bar with the legend and Open / Turn off buttons while the panel is closed.
 - **2D plan view:** owners ask for "2D" meaning the model itself seen flat from above, not the drawing sheets. Ask which they mean, or build the model view.
   - A cheap way without a second camera: aim the perspective camera straight down from far away with a 2° lens.
   - Turn fog off and disable rotation, so that drag pans.

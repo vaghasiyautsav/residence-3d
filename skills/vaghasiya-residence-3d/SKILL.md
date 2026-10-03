@@ -187,6 +187,10 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - AC outdoor unit position;
   - alfresco bench start (x 290);
   - first-floor linen cupboard added (9370–9870 × 2230–3180, doors facing the upper hall).
+- **Electrical view:** the overlay (`setElec`) and the estimate panel (`elPanel`) are separate.
+  - On phones the estimate starts closed.
+  - Closing the estimate keeps the points on; a bar (`#elbadge`) shows the legend and the floor, with Estimate and Turn off buttons.
+  - Opening X-ray, Sun or Finishes only closes the estimate. Walk turns the overlay off.
 - **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
 - **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000.
   - **Rear wall:** across the yard at x −1467…−1289 (`RWX=-1378`).
