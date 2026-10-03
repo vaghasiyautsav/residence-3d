@@ -88,7 +88,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Front frame:**
   - outer 2632–6402, bottom band 2632–3051, soffit 5951;
   - open U parapet 190 thick, with 300 box gutters (front 19900–20199, sides y 1092–1400 / 6300–6608);
-  - stone piers: GF 0–2632 (x 19990–20410), FF 3051–5951.
+  - stone piers: GF 0–2632 at x 19500–19990, hard against the garage wall and 500 deep (GF plan, elevations B and D; it was wrongly at 19990–20410 until 2026-10-04); FF 3051–5951 at x 19435–20410.
 - **Curved walls** (`D.arcs`): garage/entry R590 (centre 14400,3920; r 500–590); hall/linen R200 (centre 11611,3128; r 109–200). Both painted.
 - **Splashback windows:** kitchen 900–1600 (x 5070–6880); butler's pantry 900–1500 (x 8940–11050).
 - **Bulkheads** 2400–2700: kitchen 4790–8190 × 190–890; pantry 8280–11720 × 190–890; laundry 13210–13810 × 190–2090; linen 10070–11460 × 2830–3330; Bed 4 robe 8570–10290 × 4520–5120.
@@ -191,6 +191,11 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - On phones the estimate starts closed.
   - Closing the estimate keeps the points on; a bar (`#elbadge`) shows the legend and the floor, with Estimate and Turn off buttons.
   - Opening X-ray, Sun or Finishes only closes the estimate. Walk turns the overlay off.
+- **Flicker (z-fighting) audit:** `src/zfight.js` (local) lists coplanar, same-facing surfaces of different materials; in `test.html` run `await import('/zfight.js')` and read `__zf`.
+  - Fixed on 2026-10-04: garage jamb trims, FF slab edges (now 8 inside the wall faces), door liners (5 proud), wall-art prints, shower niche tiles, alfresco soffit and lining, plant soil.
+  - The remaining hits are downward faces (`@y-`) or back faces against walls.
+  - The orbit camera's near plane now grows with distance.
+- **Wall-gap check:** `gaps.py` (session scratch) samples every DWG wall line against the model's wall and opening edges. It found the WC/garage wall stretch lost when the old stack box was removed, and the alfresco corner pier (290 square, not 250).
 - **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
 - **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000.
   - **Rear wall:** across the yard at x −1467…−1289 (`RWX=-1378`).

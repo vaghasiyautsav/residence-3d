@@ -362,6 +362,23 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
 - **Never commit** the unlocked source, the PIN, a handoff file containing the PIN, or a source bundle. The repo is public.
 - **Attribution.** Commit as the owner. If they ask, include no AI attribution lines.
 
+### Flicker (z-fighting)
+Owners notice surfaces that flash while orbiting or walking. They are coplanar, same-facing faces of different materials. Find them with a script, not by eye:
+- collect every axis-aligned triangle in world space;
+- bucket by axis, facing and plane (to the millimetre, plus neighbours 1 mm away);
+- report overlapping pairs from different materials with both objects' bounding boxes.
+
+Typical causes:
+- trims built inside the wall they decorate (make them 4 mm proud);
+- slab or ceiling boxes that run to the outside face of a wall (stop them 8 mm inside);
+- door liners exactly as thick as the wall;
+- prints 0.5 mm in front of their mount;
+- tile patches 1 mm in front of tiles.
+
+Ignore downward faces and back faces against walls. Also let the orbit camera's near plane grow with its distance, so thin layers stop shimmering from far away.
+
+When you remove a box that overlapped a wall line, check that the wall behind it still exists.
+
 ## 8. QA every round
 - **Test page hooks:** `__t.look(x,y,yaw,pitch,lvl)` (yaw 0 faces −y, π/2 faces −x; positive pitch looks down), `__t.walk(spot)`, `__t.time(h)`, `__t.lights(on)`, `__t.D/DOORS/FUR/scene/camera/controls`. Use `?v=N` to bust the cache.
 - **Audits** (in the page, after `scene.updateMatrixWorld(true)`):
