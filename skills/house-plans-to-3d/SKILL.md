@@ -309,6 +309,11 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - Show it as its own view: slab, footings, under-slab drains and conduits only, with a label sprite at each penetration and set-down.
   - Keep label sprites out of the ambient-occlusion pass, or they leave dark boxes behind them.
 - **Make the floor zone add up:** plate + joist depth + sheet flooring + finishes = FFL. Joists bear on the plates, and upper frames stand on the sheet flooring.
+- **Footings from the engineer's plan.** Beam lines are often drawn as rows of short dashes, with no dash attribute in the PDF. Merge collinear short segments to recover them, and pair lines 250 apart into beams.
+  - Hatched rectangles are trench piers.
+  - A letter in a crossed box marks a set-down; read the legend.
+  - Give footings their own view, with the slab see-through.
+- **Audit door swings against the CAD arcs:** arc centre = hinge, radius = leaf, arc ends = closed and open positions.
 - **Show "member by others" beams** at a placeholder size and say so, or the walls above open rooms look unsupported.
 - **Services are polylines** of plan points: an instanced cylinder per segment plus a sphere per joint. Use `emissiveIntensity ~0.2` so they read through ghosts.
   - Route underground at ground −350…−600, under the slab with a real fall to the connection point, in the ceiling void (GF 2770), and in the joist zone (FF 2980).

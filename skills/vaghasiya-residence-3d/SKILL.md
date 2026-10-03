@@ -54,7 +54,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - wastes: laundry (13659, 540), pantry (10000, 360), island (6790, 2340), ensuite floor trap (12170, 6800), alfresco (590, 7820);
   - island power conduit at (5090, 2190).
 - **Ground slab** is built as a grid of cells from the slab plan (search "Ground slab per the architect's slab plan"):
-  - structural top at −20, with alfresco, porch and the ensuite shower at −70;
+  - structural top at −20, with alfresco, porch and the ensuite shower at −70 and the wet areas at −50;
   - a 25 × 100 edge rebate (top −45) around the house and garage for the Hebel, with none along the porch entry wall (x > 19390, y 1350–3280);
   - a 25 rebate across the garage door opening (x > 19300, y 3760–8570);
   - render fills the rebate under the walls.
@@ -150,7 +150,10 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - IB 250 × 700 at y 1026 (x 10571–13735), 3155 (x 1960–19240), 4386 (x 3250–6663) and 5965 (x 3250–19240).
     - MB 250 × 650 around the alfresco and porch.
     - All beams bottom out at −720.
-    - Not modelled: the trench piers and the 30 wet-area set-downs.
+    - The EB under the living/alfresco wall sits on the engineer's line, x 3000–3250.
+    - 11 trench piers (hatched on S02), modelled 1000 deep below the beams. The real depth is to natural soil, decided on site.
+    - The slab is 150 thick under the load-bearing wall at 8380–10320 × 4226–4725.
+    - Wet areas (laundry, powder room, WC, ensuite) are set down 30 per the engineer's legend (slab top −50). The architect's slab plan does not list this set-down.
   - **Footings view** (button `m-foot`, X-ray mode `footings`): beams solid, slab see-through, with size labels (`FOOTL`). Footing beams are their own family, `foot`.
   - **Services (indicative):**
     - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. The two stacks are where the slab plan puts them (see the rev A section). Ensuite 1 drains along the x 12765 wall line to the hall stack. Ensuite 2 and the kitchenette drain to the robe-corner stack. Vents rise in the nearest FF wall.
@@ -171,6 +174,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Riser rule:** `pipe()` passes every route through `inWalls()`, which moves indoor risers into the nearest wall (within 250 mm) and around any window or door. Hot water is offset 70 mm from cold. Stubs under 700 mm stay in their joinery.
 - **Power points** were re-set on 2026-10-02 so each has a real wall behind it: kitchen and pantry points beside the splashback windows, laundry points on the bench wall, and none in door openings or in open space.
 - **Services audit:** `src/audit2.js` (local) checks every pipe, cable and duct for openings, room exposure, roof, coffers, skylights and steel clashes; read `__audit2.sum`. One known leftover: the Ensuite 1 stack is wider than its wall.
+- **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
 - **Structure audit:** `src/audit.js` (local, git-ignored) lists every structure member that pokes through a roof, sits in an opening, coffer, skylight or the stair void, or hangs in a room. In `test.html`, run `await import('/audit.js')` and read `__audit.sum`. Two known false positives remain: MO7 at the stair-void edge, and the bounding box of the tapered SB3 end.
 - **Garage portal wall:** the 3350 upstand applies only beyond the first floor (y 6800–8570). Under the first floor it stops at 3051, so it no longer blocks the bottom of the Bed 1 window.
 
