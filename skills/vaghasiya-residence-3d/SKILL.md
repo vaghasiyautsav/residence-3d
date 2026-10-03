@@ -111,6 +111,10 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - meter box (proposed) on the y 900 wall, x 16620–17180;
   - bins at x 15490 (yellow), 16100 (green), 16660 (blue);
   - wall lights listed in `WL`, with wall-wash beams.
+  - eave downlights (owner request): recessed in the ground-floor eave soffit (2451) on the D side, B side and rear, and in the first-floor soffit (5601); listed in `EAVE` and pushed into `DL`, so they glow and pool with the house lights.
+  - night lighting: `ROOM_LIGHTS` (14 point lights, 8 on phones) go to the room sources nearest the viewer, with sources behind the viewer ranked further away; with the lights on, paint and ceilings keep a soft glow in every room, so distant rooms never read as dark.
+  - the entry Buddha is one continuous surface: marching cubes over a signed-distance field with smooth-min fillets (additive metaballs gave a blob). Use the same method for any figure that needs real curves.
+  - GF WC: pan centred on the back wall with full-width tiling and ledge; roll holder on the garage-side wall (owner). Pantry: stainless dishwasher under the bench beside the sink (owner).
 - **Street** (survey):
   - nature strip to 30240;
   - brick footpath 30240–31760 (jogs to ~29450–30700 between y −1378 and 2887 around the old crossover apron);
