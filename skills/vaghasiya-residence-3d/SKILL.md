@@ -31,6 +31,31 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   | Elevations A, B | FL datum at pt y 489.69 | |
   | Elevations C, D | FL datum at pt y 808.0 | |
 
+## Drawing revision A (3 Oct 2026) and the first-floor datum
+- **Current drawings** (`~/Downloads`): `WD_A_03.10.26.pdf` (8 sheets; sheet 2 is the new slab plan) and `WD_A_03.10.26 - EXT.dwg`.
+  - Convert the DWG with `dwg2dxf` (LibreDWG, installed via Homebrew) and read it with `ezdxf`. Units are mm, and y points up.
+  - Slab plan in the DWG: plan x = dwg x − 444, plan y = 51416 − dwg y. Ground-floor plan: x − 126151, 51416 − y.
+- **Rev A changes** (requested by the builder, Khush Patel of Hills and Harbour):
+  - the plumbing stack moved from beside the GF WC into the curved hall corner;
+  - new slab plan with set-downs: alfresco, porch and showers 50; garage none; 25 rebate at the garage opening;
+  - 50 mm Hebel floor, so the floor zone grows from 420;
+  - the garage internal door opens into the garage;
+  - GF ensuite shower 1440 wide (was 1540), with a floor trap;
+  - alfresco waste at x 590, with hot, cold and gas at about x 1460 / 1690 / 1950.
+- **Floor zone:** the drawings show 470. The builder then asked for **450**, and the owner chose 450 on 3 Oct 2026. If a reissue differs, change `FFLIFT`.
+- **FFLIFT datum rule.** Every first-floor and roof height in the source (and in the facts below) is on the original datum: first floor 3150, FF plate 5880, upper eave 5801, ridge 7209.
+  - `wy()` applies `FFLIFT=30`: heights up to 2730 are unchanged, the floor zone stretches, and everything from 3130 up rises 30. So the real first floor is `UR=3180`.
+  - Ground-floor parts above the plate are built with `ZG=1` (lift off): the GF roof, garage portal, front band to 3051, box gutters, stair, steel and joists.
+  - Walking heights and the plan cut use real heights.
+  - The stair has 17 equal risers, `RISE=(UR+20)/17`.
+- **Slab-plan set-out now in the model:**
+  - stacks at (8380, 4970), in the duct box at the Bed 4 robe corner, and (11639, 3030), in the hall curve;
+  - toilets at x 11919 (ensuite) and 13170 (WC); powder vanity at 12010;
+  - wastes: laundry (13659, 540), pantry (10000, 360), island (6790, 2340), ensuite floor trap (12170, 6800), alfresco (590, 7820);
+  - island power conduit at (5090, 2190).
+- **Not modelled:** the 50 shower set-downs and the 25 garage rebate.
+- **Garage portal top:** the model has 3350; the elevation dimensions it at 3400. Unresolved.
+
 ## Model facts (as built, checked against the drawings)
 - **Coordinates.** Plan mm:
   - x = rear 0 → front 20390;
@@ -92,7 +117,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **X-ray layer** (module just before `const MATS=new Set()`; panel `#xrp`, button `t-xray`).
   - **Structure is indicative LGS:** the drawings are timber, but the owner builds in steel, and the frame supplier's drawings are still to come.
     - Walls: 89 C-studs at 600, with 75 Hebel and batts on the external walls.
-    - Floor: joists about 380 deep at 450, bearing on the GF plates (2730–3110, `FT=3110`), avoiding the stair void (13400–19450 × 1100–2090). FF frames stand on the sheet flooring at 3130.
+    - Floor: joists about 380 deep at 450, bearing on the GF plates (real 2730–3110, `FT=3110`), then 50 Hebel floor panels (to 3160) and 20 of finishes, avoiding the stair void (13400–19450 × 1100–2090). FF frames stand on the Hebel floor.
     - Roof: trusses at 900 from `ROOFS`. Over the Bed 1 and Bed 2 coffers the bottom chord steps up to 6252; the upper truss lines are offset to clear the skylight shafts.
     - Ceiling batts are 1200 tiles trimmed under the roof near the eaves. Porch and stone piers show as AAC blockwork.
   - **Steel per S-sheets:**
@@ -105,16 +130,16 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
   - **Footings:** 250 × 700 edge beams, plus internal beams at y 1030/3160/4390/5970 and x 3130/6780/8240/10450/16600.
   - **Services (indicative):**
-    - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. FF stacks sit in walls on both floors: Ensuite 1 at (12765, 6165), and Ensuite 2 plus the kitchenette at (8235, 6400) with its vent offset to the shower wall at (8835, 6400). The 100 mm stacks are wider than the 90 mm walls they sit in, so those walls need thickening on site.
+    - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. The two stacks are where the slab plan puts them (see the rev A section). Ensuite 1 drains along the x 12765 wall line to the hall stack. Ensuite 2 and the kitchenette drain to the robe-corner stack. Vents rise in the nearest FF wall.
     - **Stormwater:** charged lines at y −560 / 8585 / x −560 go to the tank inlet (−1640, −480). The tank overflow goes to a pump pit at (136, 2296). The rising main runs along y −760, then y 2973, to the kerb. The front sealed line is at y 211.
     - **Water:** meter at (27150, 3650), main along y −350. Hot comes from the HWS under the eave into the ceiling at y 420.
     - **Gas:** meter at (17880, 820), line along y −680 to the cooktop and BBQ.
     - **Power:** from the MB at (16900, 860). GF cables run at 2722 under the first floor (the cavity between the ceiling lining and the beams) and at 2790 in the roof space elsewhere. FF cables run at 5910 and step up to 6200 over the coffers (`ffPath`). Downlights are chained per room, with GPO drops inside the walls.
     - **Data:** NBN to the NTD, then to the hub at (10770, 2840), then star-wired.
-    - **AC:** condenser, then refrigerant up the D wall to a fan-coil at (11300–12500, 3420–4080, 6280–6560), with ducts to Bed 1, Bed 2, the office and the upper hall, plus a return. The ground floor has a second ducted system:
-      - outdoor unit on the B-side path at x 4700–5550, y 8150–8500;
-      - slim fan-coil in the roof strip over the living room (4200–5300 × 6850–7300, z 2745–2995);
-      - ducts to the living room ×2 and Bed 4, to meals over the alfresco through the rear-wing roof, and to the hall plus a return between the joists at x 10425 / 9075 (`PLVO=0` keeps them on level 0).
+    - **AC:** one ducted system (owner's decision, 3 Oct 2026). Condenser on the D-side path, refrigerant up the D wall to a fan-coil at (11300–12500, 3420–4080, 6280–6560).
+      - FF ducts go to Bed 1, Bed 2, the office and the upper hall. The return air grille is in the upper hall at about (12334, 2633), as drawn (RA).
+      - GF is fed by droppers through the architect's three "AC" shafts on the FF plan: beside the kitchenette (7280–7730 × 2230–2740), beside the Ensuite 2 shower (8880–9280 × 5800–6610) and in the Bed 2 robe corner (3190–3600 × 6200–6610).
+      - From the shafts, ducts run in the floor zone to outlets in the kitchen, meals, Bed 4, hall and living room ×2.
 - **Walk and sound:**
   - eye 1650; desktop pointer-lock mouse look, arrows and WASD move;
   - `surfaceAt()` picks the footstep sound: FF carpet except the ensuites; GF timber, with tiles in the wet areas, carpet in Bed 4 and concrete in the garage;

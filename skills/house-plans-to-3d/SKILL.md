@@ -111,6 +111,19 @@ Head comes from the H/HT note, so sill = head − height. Then check every windo
   - use the owner's recent photos and words for what is there now.
   - The owner beats old imagery, e.g. "the pole is on the far side of the next lot".
 
+### When the architect reissues drawings
+- **Diff the sets before touching the model:**
+  - match sheets by shared words, then list added and removed words per sheet (PyMuPDF `get_text('words')`);
+  - rasterise both and pixel-diff to get the changed regions, then view each region old and new side by side;
+  - ask the owner for the change request (email): it names what to look for.
+- **Text extraction can drop a glyph** in rotated dimensions ("470" came out as "4" and "0"). Read the crop.
+- **A DWG beats the PDF** for coordinates. `brew install libredwg`, `dwg2dxf`, then `ezdxf`.
+  - Find each plan's offset by voting wall-line coordinates against the model's wall edges.
+  - Penetration marks are small circles; elevation levels are long horizontal lines on the levels layer.
+  - A slab plan gives exact stack, toilet, vanity, shower, floor-trap and conduit positions.
+- **A level change above the ground floor** touches hundreds of literals. Keep the source on the original datum and apply one documented lift in the height-to-world function, switching it off for ground-floor parts that reach above the plate. Then walking, the stair and the cut planes need real heights.
+- **Check the plans for service shafts and return-air grilles** before inventing an air-conditioning layout.
+
 ### Verify the extraction (every round)
 - Run `scripts/wall_coverage.py` per floor. The only leftovers should be door swings, shower-door swings and balustrades lower than the check height.
 - Find curved walls separately: `pdf_probe.py --lines --black` and look for `c` items. A missing one leaves a hole in the wall.
