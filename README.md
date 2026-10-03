@@ -8,7 +8,7 @@ The page is PIN protected. Ask the owner for the PIN.
 
 ## What you can do
 - Orbit the exterior, or switch to the ground floor and first floor plan cut-aways (each room shows its inside size)
-- Walk through the house in first person and open or close the doors. On a computer, click to look with the mouse and move with W A S D or the arrow keys (Shift to run); on a phone, use the joystick.
+- Walk through the house in first person and open or close the doors and windows (the flyscreens stay in place). On a computer, click to look with the mouse and move with W A S D or the arrow keys (Shift to run); on a phone, use the joystick.
 - X-ray: see through to the light-gauge steel frame, Hebel panels, insulation, floor joists, roof trusses, structural steel and footings, and to the services (sewer, stormwater, water, gas, electrical, data and air conditioning). A colour key on screen names each layer; tap one to hide or show it. Each layer can be solid, ghosted or hidden; you can also isolate a level, explode the levels apart or cut a section.
 - Ambient sound: birds by day, crickets at night, wind and rain, plus footsteps and doors when walking
 - Change the time of day, weather and lights (at night every room is lit, with wall lights and eave downlights outside; the street light comes on at dusk)
