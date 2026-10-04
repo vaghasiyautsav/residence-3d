@@ -50,7 +50,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - The stair has 17 equal risers, `RISE=UR/17` (187.06). The architect's stair note still says 17 risers at 186.47, which totals 3170 and no longer matches any floor level. Raised with the owner on 3 Oct 2026.
 - **Slab-plan set-out now in the model:**
   - stacks at (8380, 4970), in the duct box at the Bed 4 robe corner, and (11639, 3030), in the hall curve;
-  - toilets at x 11919 (ensuite) and 13170 (WC); powder vanity at 12010;
+  - toilets at x 11919 (ensuite) and 13230 (WC: the pan is centred on its back wall by the owner, so the drain is set out 60 toward the garage from the slab plan's 13170; it has its own DN100); powder vanity at 12010;
   - wastes: laundry (13659, 540), pantry (10000, 360), island (6790, 2340), ensuite floor trap (12170, 6800), alfresco (590, 7820);
   - island power conduit at (5090, 2190).
 - **Ground slab** is built as a grid of cells from the slab plan (search "Ground slab per the architect's slab plan"):
@@ -84,11 +84,11 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
 - **Roof:**
   - eave sheet edges `LB=2651` (GF) and `UB=5801` (upper); ridge 7209; pitch 22.5°; eaves 450;
   - garage roof `2900 + TAN·min(8900−y, x−13800, 19250−x)`, max-combined with the GF field (valleys);
-  - boundary wall 2730 with a 300 box gutter (2731–2931); garage portal 3400.
+  - boundary wall 2730 with a 300 box gutter (sole 2806 on the garage truss bottom chords, which run on to the wall plate; sides to 2931; rear sump down to 2452 with the corner DP); garage portal 3400.
 - **Front frame:**
   - outer 2632–6402, bottom band 2632–3051, soffit 5951;
   - open U parapet 190 thick, with 300 box gutters (front 19900–20199, sides y 1092–1400 / 6300–6608);
-  - stone piers: GF 0–2632 at x 19500–19990, hard against the garage wall and 500 deep (GF plan, elevations B and D; it was wrongly at 19990–20410 until 2026-10-04); FF 3051–5951 at x 19435–20410.
+  - stone piers: GF 0–2632 at x 19500–19990, hard against the garage wall and 500 deep (GF plan, elevations B and D; it was wrongly at 19990–20410 until 2026-10-04); FF 3051–5951 at x 19435–19990, in line with the GF pier and set back inside the white frame (it stood proud to 20410 until 2026-10-05).
 - **Curved walls** (`D.arcs`): garage/entry R590 (centre 14400,3920; r 500–590); hall/linen R200 (centre 11611,3128; r 109–200). Both painted.
 - **Splashback windows:** kitchen 900–1600 (x 5070–6880); butler's pantry 900–1500 (x 8940–11050).
 - **Bulkheads** 2400–2700: kitchen 4790–8190 × 190–890; pantry 8280–11720 × 190–890; laundry 13210–13810 × 190–2090; linen 10070–11460 × 2830–3330; Bed 4 robe 8570–10290 × 4520–5120.
@@ -99,7 +99,9 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - island 2400 × 900.
 - **Undrawn furniture** is at catalogue sizes. Queen beds; Bed 1 could be a king if the owner asks.
 - **Wet areas:**
-  - Ens 1 shower 12810–14210 × 5710–6610; Ens 2 shower 7280–8790 × 5710–6610; both have full-width 450 niches at 1100 under the window;
+  - Ens 1 shower 12810–14210 × 5710–6610; Ens 2 shower 7280–8790 × 5710–6610; both have full-width 450 niches at 1100 under the window (the GF ensuite niche is the same: x 12370–13810, 1100–1550);
+  - FF shower screens are hinged as drawn: Ens 2 a 810 fixed panel then a 690 door hinged at x 7980 (opening capped at 70° so it clears the open room door); Ens 1 a 690 fixed panel then a 700 door hinged at 13510;
+  - roll holders at 900, bath spout and mixer at 700, stair handrail 900 above the nosing line (NCC 865 min) and stopping over the landing nosing at x 13421;
   - Ens 2 bath 1480 × 752 at (8330, 3351), spout on the y 2830 wall.
 - **Robes and cupboards:**
   - WIR 1: 500 hanging along y 3270, 12810–15210, plus a make-up desk 12810–13310 × 3771–4720;
@@ -115,9 +117,9 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - night lighting: `ROOM_LIGHTS` (14 point lights, 8 on phones) go to the room sources nearest the viewer, with sources behind the viewer ranked further away; with the lights on, paint and ceilings keep a soft glow in every room, so distant rooms never read as dark.
   - the entry Buddha is one continuous surface: marching cubes over a signed-distance field with smooth-min fillets (additive metaballs gave a blob). Use the same method for any figure that needs real curves.
   - furniture shapes: `soft(w,h,d,{ax,r,crown,top,pinch,wr,bow})` makes crowned cushions, pillows, duvets and bowed chair backs (`sblk` is the plan-coordinate version); `leg()` makes round tapered splayed legs. Use these for anything upholstered or turned instead of `RB` boxes (sofas, beds, armchair, dining chairs, bar stools, office chairs, benches already do).
-  - plan notes built on 2026-10-04: smoke detectors (SD) at (9090,3760) GF hall, (7838,1506) and (14220,2637) FF; floor waste (FT) at (12170,6800) in the GF ensuite; D-side garden tap at x 2650 with the two capped "RWT pump & loop provision" stubs at x 2307 and 2445; ceiling fans in Bed 1 (17300,4400) and Bed 2 (5190,3090) in the coffers.
+  - plan notes built on 2026-10-04: smoke detectors (SD) at (9100,3849) GF hall, (7846,1582) and (14229,2719) FF, held only in `ELX` (the build loop reads it), each at least 470 from a downlight; floor waste (FT) at (12170,6800) in the GF ensuite; D-side garden tap at x 2650 with the two capped "RWT pump & loop provision" stubs at x 2307 and 2445; ceiling fans in Bed 1 (17300,4400) and Bed 2 (5190,3090) in the coffers.
   - **Swallowed-code check:** a `//` comment followed by code on the same line silently drops that code (seven cases found on 2026-10-04: coffee-table legs, both bedroom fans, plants, a rug, a bath mat). Before publishing, scan for comments that contain `);`.
-  - from the elevations, roof plan and sections (checked 2026-10-04): garage door is five 480 sections; meals door ASD 24.30 is four panels (fixed outer quarters, two leaves parting at the centre, `slider(...,true)`); AAW 24.21 and ASW 06.24 are three lights, AFW windows one light; downpipes are 75 mm round; 90 x 12 skirting is generated from the wall boxes after the furniture (stops at doors, joinery and tiling; none in the garage, through the stair or on the curved hall wall).
+  - from the elevations, roof plan and sections (checked 2026-10-04): garage door is eight sections as drawn on elevation A (220, six of 317.5, 275; `GD.hs`); every sliding window has at least two lights, so the 1210 ASW 06.12 sash slides behind its fixed half instead of into the wall; meals door ASD 24.30 is four panels (fixed outer quarters, two leaves parting at the centre, `slider(...,true)`); AAW 24.21 and ASW 06.24 are three lights, AFW windows one light; downpipes are 75 mm round; 90 x 12 skirting is generated from the wall boxes after the furniture (stops at doors, joinery and tiling; none in the garage, through the stair or on the curved hall wall).
   - hot water (owner, 2026-10-04): two wall-mounted continuous-flow gas heaters, no storage cylinders. Ground floor: D wall at x 7910, base 1200 (where the plan and elevation D mark HWS). First floor: B wall at x 12430, base 4350, between the office and Ensuite 1 windows (clear of the downpipe at x 9231); it feeds all upstairs hot water through the floor zone. Each has cold, hot, gas and a power point.
   - roof details: apron flashings where the GF and garage roofs meet the FF walls, Colorbond capping on the front-frame parapet (6402) and garage portal (3400), two stack vents with boots through the upper roof, skylight openings cut in the roof sheet (`holes`), flat rectangular skylight glazing.
   - electrical audit (2026-10-04): `ELX` lists fixed equipment that needs power but is not a room light or power point (3 smoke alarms, 5 exhaust fans); each gets a power run, a marker in the Electrical view and a line in the estimate. Bed 1 and Bed 2 fans are in `D.elec` (`fan`) so they are wired and counted. Bathroom power points are at 1100 beside the vanity (the GF ensuite one was inside the shower alcove; the Ensuite 2 one was in the AC shaft). Both water heaters have a weatherproof power point and circuit.
@@ -131,8 +133,11 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - interior audit `src/audit3.js` (2026-10-04): furniture into walls, furniture in door swings, fittings in joinery, power points with no wall behind or hidden, items in front of awning windows. Fixed then: alfresco garden tap (buried in its wall; removed, the outdoor sink has a tap), front tap moved to the porch pier's garden face (19800,900), kitchen oak board off the bench outlet, alfresco plant and porch olive moved, Bed 1 robe power point onto the wall by the make-up desk (13060,4660,1100), stair handrail 60 mm clear of the wall (was 9), GF heater hot pipe up inside the wall, alfresco hot water branching off the heater line (it still started at the old cylinder).
   - phone layout (owner, 2026-10-04): `body.compact` when the screen is under 641 wide or under 501 tall. A slim dock (`#dock`: Outside, Ground, First, Walk, More) replaces the toolbar; its buttons click the real ones (`data-proxy`) and mirror their `aria-pressed`. More opens the existing `.bar` restyled as a bottom sheet above the dock (sections Show, Layers and tools, View; picks close it except the Site, Surroundings, HQ and Sound toggles). The title card folds into a pill (`#tbpill`, just an ⓘ on phones, name + ⓘ on desktop) at the first drag, wheel or toolbar use; tapping the pill shows it for 6 s. On phones the controls fade to 15% while a finger is on the model. On phones the X-ray panel is a short sheet above the dock (view names only), picking a view closes it, the badge's Exit and Options lead the colour-key row (`.kc-only`, the badge itself hides), holding a slider in the panel hides everything but that slider (`body.peek`), and a touch on the model closes any open panel (X-ray, estimate, sun and weather, finishes; not while walking).
   - air conditioning (owner, 2026-10-04): no ceiling fan in the living room (a ninth downlight takes its spot). Visible outlets: linear slot diffusers `AC_SLOTS` (living x2 at x 3675 and 7725, meals, kitchen, GF hall, upper hall, landing; GF slots run along the joists, between them, clear of the downlights and steel), square four-way diffusers `AC_SQUARES` (Bed 1, Bed 2, office, Bed 4), and the return-air grille `AC_RA` (upper hall, plan RA). Every duct in X-ray ends at a plenum box on its diffuser. Fitting rules: FF outlets sit in truss bays (trusses at 900, e.g. lines 10575/11475/12375); GF outlets in joist bays (joists at 3000+450k, bays 375 wide, so GF squares are 300); plenums start above the furring channels (GF 2731, FF 5882). The three AC shafts (`ACSHAFT`) have trimmed joist openings with trimmer joists, and a roof truss that would land on a shaft moves just past it (`dodge`). GF ducts that cross joists pass through the joist web openings (labelled). The RA grille sits in the truss bay at x 12825, about 490 from the plan's RA. The entry has no outlet: the architect's three shafts are all at the west end; the landing slot serves the stair.
+  - app behaviour fixed on 2026-10-05: the measure tool only snaps to geometry that is drawn (not hidden, not cut away by the section or the storey cut); starting the walk-through resets X-ray, explode and section; the Sun & weather and Finishes panels close each other; light pools and glows hide while the model is exploded.
   - wall heads and sills: `wallBox` splits the top and bottom faces down the middle of the wall; each half takes the finish of its side (interior door heads were showing exterior render).
-  - GF WC: pan centred on the back wall with full-width tiling and ledge; roll holder on the garage-side wall (owner). Pantry: stainless dishwasher under the bench beside the sink (owner).
+  - GF WC: pan centred on the back wall with full-width tiling and ledge; roll holder on the garage-side wall (owner). Pantry: stainless dishwasher under the bench beside the sink (owner), 1¾ bowl sink as on the DWG. P'DR vanity top 1090 × 550 wall to wall. GF ensuite towel rail at x 12584.
+  - pair-door heads: the prayer-room (GF, x 8470–9790) and office (FF, x 10280–11800) pair doors have a head wall from 2340 to the ceiling; 13 GF heads were snapped onto their jambs (they were 10 mm off).
+  - alfresco open-side headers start at 2451, flush with the eave soffit. The Axon-clad FF front wall has batts in X-ray.
 - **Street** (survey):
   - nature strip to 30240;
   - brick footpath 30240–31760 (jogs to ~29450–30700 between y −1378 and 2887 around the old crossover apron);
@@ -156,31 +161,34 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
     - Walls: 89 C-studs at 600, with 75 Hebel and batts on the external walls.
     - Floor: joists about 380 deep at 450, bearing on the GF plates (real 2730–3110, `FT=3110`), then 50 Hebel floor panels (to 3160) and 20 of finishes, avoiding the stair void (13400–19450 × 1100–2090). FF frames stand on the Hebel floor.
     - Roof: trusses at 900 from `ROOFS`. Over the Bed 1 and Bed 2 coffers the bottom chord steps up to 6252; the upper truss lines are offset to clear the skylight shafts.
-    - Ceiling batts are 1200 tiles trimmed under the roof near the eaves. Porch and stone piers show as AAC blockwork.
+    - Ceiling batts are 1200 tiles trimmed under the roof near the eaves. Porch piers show as AAC blockwork; the stone piers show a stud frame behind the veneer (timber framed on elevation A, drawn as indicative steel studs).
   - **Steel per S-sheets:**
     - floor beams have top of steel 3110;
-    - SB3 380 PFC at y 1043 (its rear end, x 1855–2500, is shown tapered because the GF roof is lower than the beam there: an open question for the engineer);
+    - SB3 380 PFC at y 1043; from x 1855 to 2711 its top is chamfered to the roof pitch, 137 deep at the rear wall, bottom flange level on SC1 (S11 Detail B). `audit.js` flags it under the roof because it reads bounding boxes; the sloped top is 35 mm under the roof at the rear wall;
     - SB2/SB1 250 PFC at y 4363 / 6656; SB4 300 PFC at y 6656 (to 20251);
-    - GL1 300 PFC at x 19346 over the garage door;
+    - GL1 300 PFC at x 19346 over the garage door, top 2800 (70 into the floor zone, S09 and S11 Detail C) so SB4 bears on it through a 10 plate; SC1 stands on GL1 (2810–3040) beside MO3;
     - L1–L4 150 PFC lintels at 2400–2550;
-    - MO1, MO7, MO8 (under FF walls) and MO6, MO3 (front frame) are "members by others", shown at placeholder sizes;
+    - MO1, MO7, MO8 (under FF walls), MO6, MO3 (front frame) and MO4 ×2 / MO5 ×2 (boxing under the FF stone pier, S09: MO5 at y 3325 and 3715, MO4 at x 19495 and 19946) are "members by others", shown at placeholder sizes;
     - C1/C2 SHS 89 and SC1 SHS 75 stub columns.
   - **Footings** (engineer's S02 footing layout plan, `257115-S-COMBINED[B].pdf` page 2; x = (pt − 241.35) · 35.2778, y = (pt − 234.29) · 35.2778). The beam lines are drawn as rows of short dashes: merge the dashes to read them.
     - Slab 125 thick.
     - EB 250 × 700 around the house and garage perimeter.
     - IB 250 × 700 at x 3128 (y 250–4260), 6788, 8234, 10448 and 13860 (y 250–7860) and 16600 (y 1150–8760).
-    - IB 250 × 700 at y 1026 (x 10571–13735), 3155 (x 1960–19240), 4386 (x 3250–6663) and 5965 (x 3250–19240).
+    - IB 250 × 700 at y 1026 (x 10571–13735), 3155 (x 1960–19240), 4386 (x 3250–6663), 5965 (x 3250–19240) and 7985 (garage, x 13860–16600).
+    - Per S02 the main slab runs to the outside faces of the meals wall (y 4510) and the living/BBQ wall (x 3000); the alfresco set-down starts beyond the walls, and the meals EB sits under the wall at y 4260–4510. The architect's slab plan draws the step at y 4220 / x 3290: the engineer's line wins because the walls must bear on concrete. The porch D-side beam is EB; porch piers sit on the slab strip y 900–1350.
+    - Columns and pier posts start on the concrete (−20 in the house, −70 at the alfresco corner).
+    - Garage B-side concrete upstand 100 thick, x 16720–19490, to +225 (height TBC on site, S02/S05).
     - MB 250 × 650 around the alfresco and porch.
     - All beams bottom out at −720.
     - The EB under the living/alfresco wall sits on the engineer's line, x 3000–3250.
     - 11 trench piers (hatched on S02), modelled 1000 deep below the beams. The real depth is to natural soil, decided on site.
-    - The slab is 150 thick under the load-bearing wall at 8380–10320 × 4226–4725.
+    - The slab is 150 thick under the load-bearing walls at 8380–10320 × 4226–4725 and 10571–13731 × 4226–4733.
     - Wet areas (laundry, powder room, WC, ensuite) are set down 30 per the engineer's legend (slab top −50). The architect's slab plan does not list this set-down.
   - **Footings view** (button `m-foot`, X-ray mode `footings`): beams solid, slab see-through, with size labels (`FOOTL`). Footing beams are their own family, `foot`.
   - **Services (indicative):**
     - **Sewer:** main along y 7600, under the slab, to the IS at (−3071, 7963). The D-side branch runs along y 500. The two stacks are where the slab plan puts them (see the rev A section). Ensuite 1 drains along the x 12765 wall line to the hall stack. Ensuite 2 and the kitchenette drain to the robe-corner stack. Vents rise in the nearest FF wall.
-    - **Stormwater:** charged lines at y −560 / 8585 / x −560 go to the tank inlet (−1640, −480). The tank overflow goes to a pump pit at (136, 2296). The rising main runs along y −760, then y 2973, to the kerb. The front sealed line is at y 211.
-    - **Water:** meter at (27150, 3650), main along y −350. Hot comes from the HWS under the eave into the ceiling at y 420.
+    - **Stormwater** (2026-10-05, C01 routes, each service in its own lane, see the comment at the top of the stormwater block): sealed lines y −450 (D) and y 8380 (B), then x −480, y 3720, x 1200 to the charged riser at (1500, −450); surface line and nine Ø100 grates on the D and B paths and the rear paving; the rising main ends in the front 300 sq grated sump `GS` (27250, 2900), which drains to the kerb. Stormwater risers stand at the downpipe feet. The sewer branch passes west of the pump well (x −950).
+    - **Water:** meter at (26450, 3550) in the lawn, clear of the letterbox pillar; main along y −350. Rainwater pump on its own pad at (1560, −220) beside the tank, with its own circuit and pipes to the two RWT stubs. Consumer mains from a SAPN pillar in the nature strip (27650, 100), not the NBN pit. Hot comes from the HWS under the eave into the ceiling at y 420.
     - **Gas:** meter at (17880, 820), line along y −680 to the cooktop and BBQ.
     - **Power:** from the MB at (16900, 860). GF cables run at 2722 under the first floor (the cavity between the ceiling lining and the beams) and at 2790 in the roof space elsewhere. FF cables run at 5910 and step up to 6200 over the coffers (`ffPath`). Downlights are chained per room, with GPO drops inside the walls.
     - **Data:** NBN to the NTD, then to the hub at (10770, 2840), then star-wired.
@@ -219,12 +227,13 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - The orbit camera's near plane now grows with distance.
 - **Wall-gap check:** `gaps.py` (session scratch) samples every DWG wall line against the model's wall and opening edges. It found the WC/garage wall stretch lost when the old stack box was removed, and the alfresco corner pier (290 square, not 250).
 - **Door swing audit:** `swingDoor` hinge, leaf and open side were compared with the door arcs in the DWG (radius 500–1150, layer 0) on 2026-10-03. All 13 matched; the double doors show one leaf drawn at 45°.
-- **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000.
+- **Retaining walls** (civil C01 blue lines, details C03/C04; buffers `__ret`, `__retp`, X-ray family `ret`): concrete sleepers 100 × 200 between galvanised posts at 2000. The owner is not using concrete piers under the posts (2026-10-05): no cylinders below them.
   - **Rear wall:** across the yard at x −1467…−1289 (`RWX=-1378`).
   - **B-boundary wall:** x −1378…13712, y 8910–9010.
   - **Levels for both:** top RL 98.90 (−100), base RL 98.25 (−750), 0.65 m of fill, "to be confirmed on the neighbouring levels".
-  - **Steps** through the rear wall at y 2836–3731 (three 125 risers).
-  - **Driveway wall:** B boundary, x 19490–21100, top +150, base −200 (0.35 m cut).
+  - **Steps** through the rear wall at y 2836–3731, flight to x −2059, three equal risers of about 178. Ag drain behind the walls to the pump well.
+  - **Paving:** paths flat at `PAVE` −120 (RL 98.88) in exposed aggregate (`aggTex`), with edges where they meet the lawn.
+  - **No driveway wall** (owner, 2026-10-05): civil C01 draws a retaining wall on the B boundary beside the driveway; the owner is not building it, so the model has none. Do not add it back.
   - **Ground:** `ground(x)` is −750 at the foot of the rear wall, falling to −900 at the rear (sewer shaft lid RL 98.10), and −250 on the platform.
   - **Driveway (civil C01):** paving RL 98.95 at the garage door, 12.5% for 2 m to 99.20, then 20%. The design carries on to RL 100.00 and a 100.15 crest at the boundary. The model caps at verge level 950, so the lot meets the street: an accepted 200 mm difference at the boundary.
   - **Sewer:** the inspection shaft is at (−3071, 7963) with invert RL 96.60 (−2400). The main drops to it from the under-slab run.
