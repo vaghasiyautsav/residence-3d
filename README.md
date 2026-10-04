@@ -16,6 +16,7 @@ The page is PIN protected. Ask the owner for the PIN.
 - Choose the flooring (timber or tiles), the tapware finish, and the interior and exterior wall colours
 - Show the electrical estimate: downlights, power points, data and TV points, the NBN connection, smoke alarms, exhaust fans, ceiling fans and the two water heater power points
 - Measure distances
+- On a phone: a slim dock (Outside, Ground, First, Walk, More) with everything else in the More sheet; the title folds into a small ⓘ once you start exploring
 - 2D plan: see the model flat from directly above, like a drawn plan, for the ground floor, first floor, slab, footings or roof
 - Slab plan: the concrete slab on its own, with its set-downs, edge rebates and labelled pipe positions
 - Footings: the edge and internal footing beams and trench piers under the slab, from the engineer's footing plan, with the retaining walls
