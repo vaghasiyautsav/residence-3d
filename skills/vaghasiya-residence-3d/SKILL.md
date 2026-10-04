@@ -241,7 +241,7 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   - **Sewer:** the inspection shaft is at (−3071, 7963) with invert RL 96.60 (−2400). The main drops to it from the under-slab run.
   - **Tank:** the owner wants it along the D side, as the architect's site plan draws it (3 Oct 2026); do not turn it along the retaining wall as the civil plan does.
     - Size: a Team Poly Aqua Spring 3000 L slimline, 2500 × 750 × 2000.
-    - Position: x −1150…1350, y −850…−100 (centre (100, −475)), just clear of the rear retaining wall. Inlet at the house end, (990, −475).
+    - Position: x −1150…1350, y −850…−100 (centre (100, −475)), just clear of the rear retaining wall. Owner confirmed on 2026-10-05: keep this size and position. The site plan's 2100 × 850 at x −1828…272 would cut through the retaining wall. Inlet at the house end, (990, −475).
   - **Pavers:** the stepping pavers line up with the steps (y 2850–3310).
   - **Superseded labels:** the civil PDF holds hidden text (TRW 99.45 / 1.25 m). Read the labels from a render, not from the text layer.
 - **Area schedule check (2026-10-03):** the info card (106.6 + 106.0 m² living, 259.5 m² under roof) matches the AREAS table on the rev A plans (106.58, 106.00, garage 32.26, alfresco 12.26, porch 2.40, total 259.50).
