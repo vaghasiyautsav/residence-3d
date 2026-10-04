@@ -14,7 +14,7 @@ The page is PIN protected. Ask the owner for the PIN.
 - Change the time of day, weather and lights (at night every room is lit, with wall lights and eave downlights outside; the street light comes on at dusk)
 - Show or hide the surroundings: the street, neighbouring houses and their trees
 - Choose the flooring (timber or tiles), the tapware finish, and the interior and exterior wall colours
-- Show the electrical estimate: downlights, power points, data and TV points, the NBN connection, smoke alarms, exhaust fans, ceiling fans and the two water heater power points
+- Show the electrical estimate: downlights, power points, data and TV points, the NBN connection, smoke alarms, exhaust fans, ceiling fans and the two water heater power points; the ducted air-conditioning diffusers (linear slots in the living areas, square ones in the bedrooms) with their ducts in X-ray
 - Measure distances
 - On a phone: a slim dock (Outside, Ground, First, Walk, More) with everything else in the More sheet; the title folds into a small ⓘ once you start exploring
 - 2D plan: see the model flat from directly above, like a drawn plan, for the ground floor, first floor, slab, footings or roof
