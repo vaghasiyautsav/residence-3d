@@ -31,18 +31,18 @@ This project follows the general method in the `house-plans-to-3d` skill (same r
   | Elevations A, B | FL datum at pt y 489.69 | |
   | Elevations C, D | FL datum at pt y 808.0 | |
 
-## Drawing revision A (3 Oct 2026) and the first-floor datum
-- **Current drawings** (`~/Downloads`): `WD_A_03.10.26.pdf` (8 sheets; sheet 2 is the new slab plan) and `WD_A_03.10.26 - EXT.dwg`.
+## Drawing revision A & B (3–8 Oct 2026) and the first-floor datum
+- **Current drawings**: `WD_B_08.10.26.pdf` (8 sheets; officially confirms the **450 mm** mid-floor amendment), `257115-C-COMBINED[B].pdf`, `257115-S-COMBINED[B].pdf`, `257115-S-REPORT[B].pdf`, and `26010661-StampedPlans-15421496.pdf`. Earlier Rev A DWG: `WD_A_03.10.26 - EXT.dwg`.
   - Convert the DWG with `dwg2dxf` (LibreDWG, installed via Homebrew) and read it with `ezdxf`. Units are mm, and y points up.
   - Slab plan in the DWG: plan x = dwg x − 444, plan y = 51416 − dwg y. Ground-floor plan: x − 126151, 51416 − y.
-- **Rev A changes** (requested by the builder, Khush Patel of Hills and Harbour):
+- **Rev A / B changes** (requested by the builder, Khush Patel of Hills and Harbour):
   - the plumbing stack moved from beside the GF WC into the curved hall corner;
   - new slab plan with set-downs: alfresco, porch and showers 50; garage none; 25 rebate at the garage opening;
-  - 50 mm Hebel floor, so the floor zone grows from 420;
+  - 50 mm Hebel floor, so the floor zone grows from 420 to **450 mm** (confirmed on WD Rev B, 08.10.26);
   - the garage internal door opens into the garage;
-  - GF ensuite shower 1440 wide (was 1540), with a floor trap;
+  - GF ensuite shower 1440 wide (was 1540; note that the *Ens. Niche Detail* on WD B sheet 3 still says 1540 and should be confirmed with Studio Forthwall), with a floor trap;
   - alfresco waste at x 590, with hot, cold and gas at about x 1460 / 1690 / 1950.
-- **Floor zone:** the drawings show 470. The builder then asked for **450**, and the owner chose 450 on 3 Oct 2026. If a reissue differs, change `FFLIFT`.
+- **Floor zone:** WD Rev B confirms **450 mm** (`FFLIFT = 30`, `UR = 3180`). If a reissue differs, change `FFLIFT`.
 - **FFLIFT datum rule.** Every first-floor and roof height in the source (and in the facts below) is on the original datum: first floor 3150, FF plate 5880, upper eave 5801, ridge 7209.
   - `wy()` applies `FFLIFT=30`: heights up to 2730 are unchanged, the floor zone stretches, and everything from 3130 up rises 30. So the real first floor is `UR=3180`.
   - Ground-floor parts above the plate are built with `ZG=1` (lift off): the GF roof, garage portal, front band to 3051, box gutters, stair, steel and joists.
